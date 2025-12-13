@@ -20,5 +20,5 @@ test('should display the "How this generalizes" section', async ({ page }) => {
   await expect(generalizesText).toContainText("The 'Reverse Calculator' model can be applied to any asset class");
 
   // Take a screenshot for visual confirmation
-  await page.screenshot({ path: '/home/jules/verification/verification.png' });
+  await page.screenshot({ path: 'verification.png' });
 });

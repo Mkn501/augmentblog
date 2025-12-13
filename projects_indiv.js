@@ -68,7 +68,7 @@ window.PROJECTS = [
             "Vibe Coding shifts the PM role from 'specifying' to 'building'.",
             "Never analyze yield in a vacuum; always compare to Risk-Free rates."
         ],
-        "generalizes": "The 'Reverse Calculator' model can be applied to any asset class (stocks, bonds, startups) to determine fair value based on a desired return, turning subjective valuation into a data-driven process for any investment decision."
+        "generalizes": "Institutional firms spend millions on analysts to vet deals overnight. This workflow proves that a solo operator with AI can now replicate that **institutional-grade due diligence in seconds**. It generalizes into a 'Personal Investment Committee' that creates a standardized, unemotional scorecard for every financial decision you face."
     },
     {
         "id": "job-skills",
