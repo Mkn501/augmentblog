@@ -86,13 +86,28 @@
     <script>
         function loadProject() {
             const params = new URLSearchParams(window.location.search);
-            const projectId = params.get('id') || 'starnberg';
+            const projectIdOrIndex = params.get('project') || params.get('id');
 
             try {
                 const projects = window.PROJECTS;
-                const project = projects.find(p => p.id === projectId);
+                let project;
+
+                if (projectIdOrIndex) {
+                    // Check if it's a number (index) or a string (id)
+                    if (!isNaN(projectIdOrIndex)) {
+                        project = projects[parseInt(projectIdOrIndex, 10)];
+                    } else {
+                        project = projects.find(p => p.id === projectIdOrIndex);
+                    }
+                }
+
+                // Fallback to the first project if no valid parameter is found
+                if (!project) {
+                    project = projects[0];
+                }
 
                 if (!project) {
+                    console.error('No project data available.');
                     document.body.innerHTML = '<div class="p-12 text-center text-red-600 font-mono">Project not found.</div>';
                     return;
                 }
@@ -211,6 +226,14 @@
                     lessonsList.innerHTML = '<li class="text-sm text-stone-400 italic">No specific lessons recorded.</li>';
                 }
 
+                // Populate How this Generalizes
+                const generalizesText = document.getElementById('generalizes-text');
+                if (generalizesText && project.generalizes) {
+                    generalizesText.textContent = project.generalizes;
+                } else if (generalizesText) {
+                    generalizesText.textContent = 'No specific generalization recorded.';
+                }
+
                 // Initialize Like System
                 initLikeSystem(project);
 
@@ -291,7 +314,6 @@
                 fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/${projectId}/up`)
                     .then(res => res.json())
                     .then(data => {
-                        console.log("Like API Response:", data);
                         likeCount = data.count;
                         updateLikeUI();
                     })
@@ -570,6 +592,17 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- HOW THIS GENERALIZES -->
+                    <div class="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-stone-100/50 backdrop-blur-sm">
+                        <h3 class="font-mono text-xs font-bold text-stone-500 uppercase tracking-widest mb-3">
+                            How this Generalizes
+                        </h3>
+                        <p id="generalizes-text" class="text-sm text-stone-600 font-sans leading-relaxed">
+                            <!-- Dynamic Content -->
+                        </p>
+                    </div>
+
                 </div>
             </div>
 

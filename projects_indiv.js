@@ -67,7 +67,8 @@ window.PROJECTS = [
             "AI excels at math but needs human guidance on legal constraints (Rent Control, GEG).",
             "Vibe Coding shifts the PM role from 'specifying' to 'building'.",
             "Never analyze yield in a vacuum; always compare to Risk-Free rates."
-        ]
+        ],
+        "generalizes": "The 'Reverse Calculator' model can be applied to any asset class (stocks, bonds, startups) to determine fair value based on a desired return, turning subjective valuation into a data-driven process for any investment decision."
     },
     {
         "id": "job-skills",
@@ -134,7 +135,8 @@ window.PROJECTS = [
         "lessons": [
             "Parsing PDFs is harder than generating text.",
             "Users trust the output more if they see the changes highlighted."
-        ]
+        ],
+        "generalizes": "This 'Context Matcher' service can be adapted for any domain requiring document alignment, such as grant proposals, sales pitches, or legal contract reviews, saving thousands of hours in manual tailoring."
     },
     {
         "id": "fact-checking",
@@ -201,6 +203,7 @@ window.PROJECTS = [
         "lessons": [
             "Websites change frequently; selectors must be robust.",
             "Respect robots.txt to avoid IP bans."
-        ]
+        ],
+        "generalizes": "The Headless Browser Cluster is a universal data extraction engine. It can be pointed at any website—financial portals, social media, e-commerce—to create real-time data feeds for market intelligence, sentiment analysis, or compliance monitoring."
     }
 ];

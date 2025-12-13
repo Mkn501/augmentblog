@@ -1,5 +1,4 @@
-# System
-.DS_Store
-
-# Documentation
-*.md
+node_modules/
+package-lock.json
+server.log
+test-results/
