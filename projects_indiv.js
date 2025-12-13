@@ -28,7 +28,7 @@ window.PROJECTS = [
                 "title": "The Prompt (Human Intent)",
                 "color": "stone-400",
                 "content_type": "text",
-                "text": "\"Here is an exposé for a flat in Starnberg (€469k). Calculate the annual net cold rent and show me the calculation path. Is the yield attractive?\""
+                "text": "\"Here is an exposé for a flat in Munich (€469k). Calculate the annual net cold rent and show me the calculation path. Is the yield attractive?\""
             },
             {
                 "title": "Deep Dive Discovery",
