@@ -75,7 +75,6 @@ window.PROJECTS = [
         "category": "Career",
         "type": "Tool",
         "style_type": "structured",
-        "coming_soon": true,
         "title": "Job Skills Matching",
         "subtitle": "Automated tailoring",
         "tagline": "Automated tailoring",

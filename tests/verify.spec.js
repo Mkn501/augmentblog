@@ -17,7 +17,7 @@ test('should display the "How this generalizes" section', async ({ page }) => {
 
   // Check that the text content is correctly populated
   const generalizesText = page.locator('#generalizes-text');
-  await expect(generalizesText).toContainText("The 'Reverse Calculator' model can be applied to any asset class");
+  await expect(generalizesText).toContainText("Institutional firms spend millions on analysts to vet deals overnight.");
 
   // Take a screenshot for visual confirmation
   await page.screenshot({ path: 'verification.png' });
