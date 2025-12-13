@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starnberg Investment | The Symbiosis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts: Playfair (Human), JetBrains (Machine), Plus Jakarta (UI) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FAFAF9', /* Alabaster Paper */
+                        ink: '#171717',    /* Carbon Ink */
+                        stone: '#78716C',
+                        insight: {
+                            blue: '#0EA5E9',   /* Azure Ink */
+                            red: '#DC2626',    /* Crimson Ink */
+                            yellow: '#D97706', /* Amber Ink */
+                            green: '#15803D'   /* Sage Ink */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'], // New UI Font
+                    },
+                    boxShadow: {
+                        'paper': '0 20px 40px -10px rgba(0,0,0,0.05)',
+                        'lift': '0 25px 50px -12px rgba(0,0,0,0.1)',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #f3f4f6 1px, transparent 1px), linear-gradient(to bottom, #f3f4f6 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAF9;
+            color: #171717;
+            /* Noise texture for paper feel */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        /* Abstract Pattern Classes */
+        .pattern-grid {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        /* Smooth Scroll & Hide Scrollbar */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col font-sans selection:bg-stone-200">
+
+    <!-- DYNAMIC CONTENT SCRIPT -->
+    <script src="projects_indiv.js"></script>
+    <script>
+        function loadProject() {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('id') || 'starnberg';
+
+            try {
+                const projects = window.PROJECTS;
+                const project = projects.find(p => p.id === projectId);
+
+                if (!project) {
+                    document.body.innerHTML = '<div class="p-12 text-center text-red-600 font-mono">Project not found.</div>';
+                    return;
+                }
+
+                // Populate Header
+                document.getElementById('case-id').textContent = `CASE STUDY #001`;
+                document.getElementById('case-category').textContent = project.category.toUpperCase();
+                document.getElementById('main-title').innerHTML = `${project.title}<br/><span class="text-stone-400 italic font-normal">${project.subtitle}</span>`;
+                document.getElementById('tagline').textContent = project.tagline;
+                document.getElementById('summary-text').textContent = project.summary;
+
+                // Populate 4 Insights
+                const insights = project.insights || {};
+                updateInsight('insight-analyst-text', insights.analyst);
+                updateInsight('insight-businessman-text', insights.businessman);
+                updateInsight('insight-visionary-text', insights.visionary);
+                updateInsight('insight-humanist-text', insights.humanist);
+
+                // Populate Narrative Timeline
+                const stepsContainer = document.querySelector('.lg\\:w-2\\/3.space-y-16.relative');
+                if (stepsContainer && project.steps) {
+                    // Keep the vertical line and initial div structure but clear steps
+                    stepsContainer.innerHTML = '<div class="absolute left-0 top-4 bottom-4 w-px bg-stone-200"></div>';
+
+                    project.steps.forEach((step, index) => {
+                        const stepIndexC = String(index + 1).padStart(2, '0');
+                        let contentHTML = '';
+
+                        if (step.content_type === 'text') {
+                            contentHTML = `
+                                <div class="bg-white p-8 rounded-lg shadow-sm border border-stone-100 font-serif italic text-lg text-ink/80 leading-relaxed relative">
+                                    <span class="absolute top-4 left-4 text-6xl text-stone-100 font-serif font-bold -z-10">"</span>
+                                    <span>${step.text}</span>
+                                </div>`;
+                        } else if (step.content_type === 'list') {
+                            const listItems = step.items.map((item, i) => `
+                                <div class="flex items-start gap-4">
+                                    <span class="bg-blue-50 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mt-0.5">${i + 1}</span>
+                                    <span class="text-base text-stone-600 leading-tight">${item}</span>
+                                </div>
+                            `).join('');
+                            contentHTML = `
+                                <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
+                                    <div class="px-6 py-4 border-b border-stone-100 bg-stone-50/50 flex justify-between items-center">
+                                        <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Key Points</span>
+                                    </div>
+                                    <div class="p-6 space-y-4">${listItems}</div>
+                                </div>`;
+                        } else if (step.content_type === 'html') {
+                            contentHTML = `
+                                <p class="text-lg font-serif text-ink leading-relaxed mb-6">
+                                    ${step.html}
+                                </p>`;
+                        } else if (step.content_type === 'image') {
+                            const imageContent = `
+                                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-paper border border-stone-100 relative group cursor-pointer">
+                                    <img src="${step.image_url || '#'}" alt="Visual" class="w-full h-auto object-cover grayscale group-hover:grayscale-20 transition-all duration-700">
+                                    <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 border border-white/50 shadow-sm">
+                                        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                        <span class="text-xs font-mono font-bold text-stone-600 uppercase tracking-wide">${step.image_caption || 'Visual'}</span>
+                                        ${step.link_url ? '<span class="ml-auto text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500">OPEN ↗</span>' : ''}
+                                    </div>
+                                </div>`;
+
+                            if (step.link_url) {
+                                contentHTML = `<a href="${step.link_url}" target="_blank" class="block hover:scale-[1.01] transition-transform">${imageContent}</a>`;
+                            } else {
+                                contentHTML = imageContent;
+                            }
+                        } else if (step.content_type === 'failure_success') {
+                            contentHTML = `
+                                <div class="space-y-4">
+                                    <div class="bg-red-50 border border-red-100 rounded-lg p-4 flex gap-4 items-start">
+                                        <div class="bg-red-100 text-red-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">!</div>
+                                        <div>
+                                            <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Failure Mode</span>
+                                            <p class="text-sm text-red-900/80">${step.failure}</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-center"><span class="text-stone-300 text-lg">↓</span></div>
+                                    <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4 flex gap-4 items-start">
+                                        <div class="bg-emerald-100 text-emerald-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">✓</div>
+                                        <div>
+                                            <span class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Correction</span>
+                                            <p class="text-sm text-emerald-900/80">${step.success}</p>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        }
+
+                        const stepHTML = `
+                            <div class="pl-8 relative">
+                                <div class="absolute left-[-4px] top-2 w-2 h-2 bg-${step.color || 'stone-400'} rounded-full ring-4 ring-canvas"></div>
+                                <h3 class="font-mono text-sm font-bold text-${step.color ? step.color.replace('bg-', '') : 'stone-400'} uppercase tracking-widest mb-4">
+                                    ${stepIndexC}. ${step.title}
+                                </h3>
+                                ${contentHTML}
+                            </div>
+                        `;
+                        stepsContainer.insertAdjacentHTML('beforeend', stepHTML);
+                    });
+                }
+
+
+                // Populate Lessons Learnt
+                const lessonsList = document.getElementById('lessons-list');
+                if (lessonsList && project.lessons) {
+                    lessonsList.innerHTML = project.lessons.map(lesson => `
+                        <li class="flex items-start gap-3">
+                            <span class="text-insight-blue mt-1">→</span>
+                            <span class="text-sm text-stone-600 font-sans">${lesson}</span>
+                        </li>
+                    `).join('');
+                } else if (lessonsList) {
+                    lessonsList.innerHTML = '<li class="text-sm text-stone-400 italic">No specific lessons recorded.</li>';
+                }
+
+                // Initialize Like System
+                initLikeSystem(project);
+
+            } catch (error) {
+                console.error("Failed to load project:", error);
+            }
+        }
+
+        function updateInsight(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text || 'Loading...';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProject);
+
+        // Global Like System (CounterAPI)
+        let isLiked = false;
+        let likeCount = 0;
+        let projectId = '';
+
+        function initLikeSystem(project) {
+            projectId = project.id;
+            const storageKeyState = `liked_${projectId}`; // Keep local state to toggle button color
+
+            // 1. Initial State (Visual only)
+            const storedState = localStorage.getItem(storageKeyState);
+            isLiked = storedState === 'true';
+
+            // 2. Fetch Global Count
+            fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/${projectId}/`)
+                .then(res => res.json())
+                .then(data => {
+                    likeCount = data.count;
+                    updateLikeUI();
+                })
+                .catch(err => {
+                    console.error("CounterAPI Error:", err);
+                    likeCount = 0;
+                    updateLikeUI();
+                });
+
+            updateLikeUI();
+        }
+
+        function updateLikeUI() {
+            const btn = document.getElementById('like-btn');
+            const icon = document.getElementById('like-icon');
+            const countDisplay = document.getElementById('like-count');
+
+            countDisplay.textContent = likeCount;
+
+            if (isLiked) {
+                btn.classList.add('border-insight-red', 'bg-red-50');
+                btn.classList.remove('border-stone-200', 'bg-white');
+                icon.setAttribute('fill', 'currentColor');
+                icon.classList.remove('text-stone-400');
+                icon.classList.add('text-insight-red');
+            } else {
+                btn.classList.remove('border-insight-red', 'bg-red-50');
+                btn.classList.add('border-stone-200', 'bg-white');
+                icon.setAttribute('fill', 'none');
+                icon.classList.add('text-stone-400');
+                icon.classList.remove('text-insight-red');
+            }
+        }
+
+        function toggleLike() {
+            if (!projectId) return;
+            const storageKeyState = `liked_${projectId}`;
+
+            if (!isLiked) {
+                // LIKE: Call /up endpoint
+                isLiked = true;
+                // Optimistic UI update
+                likeCount++;
+                updateLikeUI();
+
+                fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/${projectId}/up`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("Like API Response:", data);
+                        likeCount = data.count;
+                        updateLikeUI();
+                    })
+                    .catch(err => console.error("Like API Error:", err));
+            } else {
+                // UNLIKE: Call /down endpoint
+                isLiked = false;
+                // Optimistic UI update
+                likeCount--;
+                updateLikeUI();
+
+                fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/${projectId}/down`)
+                    .then(res => res.json())
+                    .then(data => {
+                        likeCount = data.count;
+                        updateLikeUI();
+                    });
+            }
+
+            // Save visual state to LocalStorage
+            localStorage.setItem(storageKeyState, isLiked);
+        }
+    </script>
+
+
+    <!-- HERO SECTION (Compact for Detail Page) -->
+    <header class="pt-12 pb-12 px-6 md:px-12 max-w-7xl mx-auto w-full relative">
+        <nav class="font-mono text-xs text-stone-500 tracking-widest uppercase flex items-center gap-4 mb-8">
+            <a href="ref_galary_page_indiv.html" class="hover:text-ink transition-colors flex items-center gap-2">
+                <span class="text-lg">←</span> BACK TO GALLERY
+            </a>
+        </nav>
+
+        <div class="max-w-4xl">
+            <div class="flex justify-between items-start mb-4">
+                <div class="font-mono text-xs text-stone-500 flex items-center gap-2">
+                    <span id="case-id">CASE STUDY #001</span>
+                    <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+                    <span id="case-category">FINANCE</span>
+                </div>
+
+                <!-- LIKE BUTTON -->
+                <button id="like-btn" onclick="toggleLike()"
+                    class="group flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200 hover:border-insight-red/50 hover:bg-red-50 transition-all duration-300 shadow-sm active:scale-95">
+                    <svg id="like-icon" class="w-4 h-4 text-stone-400 group-hover:text-insight-red transition-colors"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                        </path>
+                    </svg>
+                    <span id="like-count"
+                        class="font-mono text-xs font-bold text-stone-500 group-hover:text-insight-red">34</span>
+                </button>
+            </div>
+            <h1 id="main-title"
+                class="text-5xl md:text-7xl font-serif font-black tracking-tight mb-6 leading-none text-ink">
+                <!-- Dynamic Title -->
+            </h1>
+            <p id="tagline" class="text-xl md:text-2xl font-serif italic text-stone-500 mb-12">
+                <!-- Dynamic Tagline -->
+            </p>
+
+            <!-- NEW: Project Summary -->
+            <div class="max-w-2xl text-lg text-ink/80 leading-relaxed border-l-2 border-stone-200 pl-6 mb-12">
+                <p id="summary-text">
+                    <!-- Dynamic Summary -->
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow px-6 md:px-12 pb-32 max-w-7xl mx-auto w-full">
+
+        <!-- HEADER STATS GRID: THE 4 INSIGHTS -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            <!-- Analyst (Blue) -->
+            <div
+                class="p-4 bg-white border-l-4 border-insight-blue rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
+                <div class="text-[10px] font-mono font-bold text-insight-blue uppercase mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-insight-blue"></span>
+                    The Analyst
+                </div>
+                <div id="insight-analyst-text" class="text-sm font-bold text-stone-700 leading-tight">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+
+            <!-- Businessman (Red) -->
+            <div
+                class="p-4 bg-white border-l-4 border-insight-red rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
+                <div class="text-[10px] font-mono font-bold text-insight-red uppercase mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-insight-red"></span>
+                    The Businessman
+                </div>
+                <div id="insight-businessman-text" class="text-sm font-bold text-stone-700 leading-tight">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+
+            <!-- Visionary (Yellow) -->
+            <div
+                class="p-4 bg-white border-l-4 border-insight-yellow rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
+                <div class="text-[10px] font-mono font-bold text-insight-yellow uppercase mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-insight-yellow"></span>
+                    The Visionary
+                </div>
+                <div id="insight-visionary-text" class="text-sm font-bold text-stone-700 leading-tight">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+
+            <!-- Humanist (Green) -->
+            <div
+                class="p-4 bg-white border-l-4 border-insight-green rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
+                <div class="text-[10px] font-mono font-bold text-insight-green uppercase mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-insight-green"></span>
+                    The Humanist
+                </div>
+                <div id="insight-humanist-text" class="text-sm font-bold text-stone-700 leading-tight">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+
+            <!-- LEFT COLUMN: NARRATIVE -->
+            <div class="lg:w-2/3 space-y-16 relative">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-0 top-4 bottom-4 w-px bg-stone-200"></div>
+
+                <!-- 01. THE PROMPT -->
+                <div class="pl-8 relative">
+                    <div class="absolute left-[-4px] top-2 w-2 h-2 bg-stone-400 rounded-full"></div>
+                    <h3 class="font-mono text-sm font-bold text-stone-400 uppercase tracking-widest mb-4">
+                        01. The Prompt (Human Intent)
+                    </h3>
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-sm border border-stone-100 font-serif italic text-lg text-ink/80 leading-relaxed relative">
+                        <span class="absolute top-4 left-4 text-6xl text-stone-100 font-serif font-bold -z-10">"</span>
+                        <span id="step-1-text">
+                            Act as a senior portfolio manager. Analyze the following batch of incoming market data,
+                            categorize rebalancing needs by urgency (High, Medium, Low), and draft a trade plan based on
+                            our risk policy...
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 02. DEEP DIVE -->
+                <div class="pl-8 relative">
+                    <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-blue rounded-full ring-4 ring-canvas">
+                    </div>
+                    <h3 class="font-mono text-sm font-bold text-insight-blue uppercase tracking-widest mb-4">
+                        02. Deep Dive Discovery
+                    </h3>
+                    <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
+                        <div
+                            class="px-6 py-4 border-b border-stone-100 bg-stone-50/50 flex justify-between items-center">
+                            <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Key Pain Points
+                                Identified</span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-start gap-4">
+                                <span
+                                    class="bg-blue-50 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
+                                <span class="text-base text-stone-600 leading-tight">Slow manual rebalancing during
+                                    volatility.</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span
+                                    class="bg-blue-50 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
+                                <span class="text-base text-stone-600 leading-tight">Inconsistent compliance checks in
+                                    workflow.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03. AUTOMATION REVIEW -->
+                <div class="pl-8 relative">
+                    <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-yellow rounded-full ring-4 ring-canvas">
+                    </div>
+                    <h3 class="font-mono text-sm font-bold text-insight-yellow uppercase tracking-widest mb-4">
+                        03. Automation Review
+                    </h3>
+                    <p class="text-lg font-serif text-ink leading-relaxed mb-6">
+                        By connecting the Portfolio API to the LLM, we reduced manual data sorting by <strong
+                            class="bg-yellow-100 px-1">90%</strong>. The system now flags urgent "risk-critical"
+                        allocations instantly, allowing humans to focus on strategy rather than calculation.
+                    </p>
+                </div>
+
+                <!-- 04. IMPLEMENTATION -->
+                <div class="pl-8 relative">
+                    <div class="absolute left-[-4px] top-2 w-2 h-2 bg-stone-900 rounded-full ring-4 ring-canvas"></div>
+                    <h3 class="font-mono text-sm font-bold text-stone-900 uppercase tracking-widest mb-4">
+                        04. Implementation
+                    </h3>
+
+                    <div
+                        class="bg-stone-50 rounded-2xl overflow-hidden shadow-paper border border-stone-100 relative group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6gPommhRV3U7IAzhEbExPy-aZyhzjgskV0RKyEeUu3_x0g5PD9pR66U6YCOnCwKnWzzq4IQYl3NdXDfxngFduPdHOHsi52CFtpfPAjMc9T1LISzyR3-CnmMrlfDjkMhrm5QyQuxg8qhlMUUyFOnlciVsxmmveMP9nATNuAphe71aC9cDA01m0QKpDosHki80Ch7zFPdHV_OletgZq-4weINpYe5z_KDqbGwc0T8d39_RD9H2hTSTm-_zvP0UZfoVHfJCaDw3y4mYw"
+                            alt="App Mockup"
+                            class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors"></div>
+                        <div
+                            class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 border border-white/50 shadow-sm">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span class="text-xs font-mono font-bold text-stone-600 uppercase tracking-wide">System
+                                Operational</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05. REFINEMENT -->
+                <div class="pl-8 relative">
+                    <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-green rounded-full ring-4 ring-canvas">
+                    </div>
+                    <h3 class="font-mono text-sm font-bold text-insight-green uppercase tracking-widest mb-4">
+                        05. Feedback Refinement
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div class="bg-red-50 border border-red-100 rounded-lg p-4 flex gap-4 items-start">
+                            <div
+                                class="bg-red-100 text-red-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">
+                                !</div>
+                            <div>
+                                <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Failure
+                                    Mode</span>
+                                <p class="text-sm text-red-900/80">Model initially hallucinated regulatory limits for
+                                    international equities allocations.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <span class="text-stone-300 text-lg">↓</span>
+                        </div>
+
+                        <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4 flex gap-4 items-start">
+                            <div
+                                class="bg-emerald-100 text-emerald-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">
+                                ✓</div>
+                            <div>
+                                <span
+                                    class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Correction</span>
+                                <p class="text-sm text-emerald-900/80">Implemented RAG (Retrieval Augmented Generation)
+                                    to ground trade suggestions strictly in the uploaded PDF compliance handbook.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: LESSONS LEARNT STICKY -->
+            <div class="lg:w-1/3">
+                <div class="sticky top-24">
+                    <div class="bg-white p-8 rounded-xl shadow-paper border border-stone-100 relative overflow-hidden">
+                        <!-- Decorative bg icon -->
+                        <div class="absolute -right-6 -top-6 text-stone-50 select-none pointer-events-none">
+                            <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.93 12.07 7 10.62 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.62-.93 3.07-2.15 4.1z" />
+                            </svg>
+                        </div>
+
+                        <div class="relative z-10">
+                            <h3 class="font-serif text-2xl font-bold text-ink mb-6 flex items-center gap-2">
+                                Lessons Learnt
+                            </h3>
+                            <!-- Quote removed as it's not in JSON data schema yet -->
+                            <ul id="lessons-list" class="space-y-4">
+                                <!-- Dynamic Content -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER (CURATOR'S DESK) -->
+    <footer class="border-t border-stone-300 bg-white py-24 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+            <div>
+                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-4">The Curator</div>
+                <h2 class="text-5xl md:text-7xl font-serif font-black text-ink tracking-tight">READY TO<br />BUILD?</h2>
+            </div>
+
+            <div class="font-mono text-sm text-stone-600 space-y-2 text-right w-full md:w-auto">
+                <div class="block border-b border-stone-100 pb-2 mb-2">Connect</div>
+                <a href="#" class="block hover:text-insight-blue transition-colors">linkedin.com/in/native-ai</a>
+                <a href="#" class="block hover:text-insight-blue transition-colors">hello@symbiosis.ai</a>
+                <div class="pt-4 text-xs text-stone-400">© 2025 The Symbiosis</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

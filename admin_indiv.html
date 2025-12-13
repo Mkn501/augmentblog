@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curator Interface | Add Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FAFAF9',
+                        ink: '#171717',
+                        stone: '#78716C',
+                        insight: { blue: '#0EA5E9', red: '#DC2626', yellow: '#D97706', green: '#15803D' }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-canvas text-ink font-sans min-h-screen p-12">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-12 border-b border-stone-200 pb-6 flex justify-between items-end">
+            <div>
+                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-2">Internal Tool</div>
+                <h1 class="text-4xl font-serif font-black">Case Study Curator</h1>
+            </div>
+            <a href="ref_galary_page_indiv.html" class="font-mono text-xs text-stone-500 hover:text-ink underline">Back
+                to
+                Gallery</a>
+        </header>
+
+        <form id="cms-form" class="space-y-12">
+
+            <!-- SECTION 1: METADATA -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-stone-100">
+                <h2
+                    class="font-mono text-xs font-bold text-stone-400 uppercase tracking-widest mb-6 border-b border-stone-100 pb-2">
+                    01. Core Identity</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2">Unique ID (URL slug)</label>
+                        <input type="text" name="id" placeholder="e.g. quantum-finance"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded font-mono text-sm focus:outline-none focus:border-ink">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2">Category</label>
+                        <select name="category"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded font-mono text-sm focus:outline-none focus:border-ink">
+                            <option value="Finance">Finance</option>
+                            <option value="Career">Career</option>
+                            <option value="Automation">Automation</option>
+                            <option value="Generative Art">Generative Art</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2">Title</label>
+                        <input type="text" name="title" placeholder="e.g. The Quantum"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded font-serif text-lg focus:outline-none focus:border-ink">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-2">Subtitle</label>
+                        <input type="text" name="subtitle" placeholder="e.g. Leap"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded font-serif italic text-lg focus:outline-none focus:border-ink">
+                    </div>
+                    <div class="col-span-full">
+                        <label class="block text-xs font-bold uppercase mb-2">Tagline</label>
+                        <input type="text" name="tagline" placeholder="One sentence summary..."
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm focus:outline-none focus:border-ink">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: 4-INSIGHT MODEL -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-stone-100">
+                <h2 class="text-xl font-serif font-bold text-ink mb-2">
+                    02. The 4 Insights</h2>
+
+                <!-- Context Block -->
+                <!-- Context Block (Submission Guide) -->
+                <div class="bg-stone-50 p-6 rounded-lg mb-8 border border-stone-200">
+                    <h3
+                        class="font-serif font-bold text-ink mb-4 text-sm uppercase tracking-wide border-b border-stone-200/50 pb-2">
+                        The Symbiosis Submission Guide</h3>
+                    <p class="text-xs text-stone-500 mb-4 italic">To ensure every project resonates with all
+                        stakeholders, fill out these 4 fields. Do not just describe what you built. Describe why it
+                        matters.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Blue -->
+                        <div class="space-y-1">
+                            <span class="text-[11px] font-bold text-insight-blue uppercase block">🔵 The Analyst
+                                (Blue)</span>
+                            <p class="text-[10px] text-stone-600 font-sans"><strong
+                                    class="text-stone-800">Angle:</strong> Logic, Precision, Validation.</p>
+                            <p class="text-[10px] text-stone-500">State the hard, verified truth. Compare 'perceived
+                                value' vs 'data reality'. Use numbers.</p>
+                        </div>
+                        <!-- Red -->
+                        <div class="space-y-1">
+                            <span class="text-[11px] font-bold text-insight-red uppercase block">🔴 The Businessman
+                                (Red)</span>
+                            <p class="text-[10px] text-stone-600 font-sans"><strong
+                                    class="text-stone-800">Angle:</strong> Speed, ROI, Results.</p>
+                            <p class="text-[10px] text-stone-500">Cut to the chase. Bottom-line impact. Money saved or
+                                generated. Speed of decision.</p>
+                        </div>
+                        <!-- Yellow -->
+                        <div class="space-y-1">
+                            <span class="text-[11px] font-bold text-insight-yellow uppercase block">🟡 The Visionary
+                                (Yellow)</span>
+                            <p class="text-[10px] text-stone-600 font-sans"><strong
+                                    class="text-stone-800">Angle:</strong> Innovation, "Vibe Coding".</p>
+                            <p class="text-[10px] text-stone-500">Process revolution. How AI allowed skipping
+                                bottlenecks. "Idea-to-Prototype" velocity.</p>
+                        </div>
+                        <!-- Green -->
+                        <div class="space-y-1">
+                            <span class="text-[11px] font-bold text-insight-green uppercase block">🟢 The Humanist
+                                (Green)</span>
+                            <p class="text-[10px] text-stone-600 font-sans"><strong
+                                    class="text-stone-800">Angle:</strong> Values, Empowerment, No Fear.</p>
+                            <p class="text-[10px] text-stone-500">How does it liberate the human? Remove anxiety?
+                                Automate safety checks?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-insight-blue pl-4">
+                        <label class="block text-xs font-bold uppercase mb-1 text-insight-blue">The Analyst
+                            (Blue)</label>
+                        <p class="text-[10px] text-stone-500 mb-2">State the hard, verified truth. Compare 'perceived'
+                            vs 'data'.</p>
+                        <textarea name="insight_analyst" rows="3"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm resize-none"
+                            placeholder="Example: Risk-adjusted comparison: Property (2.4%) vs. Bonds (2.8%). Data-driven reality check."></textarea>
+                    </div>
+                    <div class="border-l-4 border-insight-red pl-4">
+                        <label class="block text-xs font-bold uppercase mb-1 text-insight-red">The Businessman
+                            (Red)</label>
+                        <p class="text-[10px] text-stone-500 mb-2">Bottom-line impact. Money saved. Decision speed.</p>
+                        <textarea name="insight_businessman" rows="3"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm resize-none"
+                            placeholder="Example: ROI Focus: Identified €500k capital allocation error in < 10 mins."></textarea>
+                    </div>
+                    <div class="border-l-4 border-insight-yellow pl-4">
+                        <label class="block text-xs font-bold uppercase mb-1 text-insight-yellow">The Visionary
+                            (Yellow)</label>
+                        <p class="text-[10px] text-stone-500 mb-2">Process revolution. "Idea-to-Prototype" velocity.</p>
+                        <textarea name="insight_visionary" rows="3"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm resize-none"
+                            placeholder="Example: Rapid 'Vibe Coding' cycles turn abstract ideas into tools instantly."></textarea>
+                    </div>
+                    <div class="border-l-4 border-insight-green pl-4">
+                        <label class="block text-xs font-bold uppercase mb-1 text-insight-green">The Humanist
+                            (Green)</label>
+                        <p class="text-[10px] text-stone-500 mb-2">Remove fear. Automate safety checks. Empower the
+                            human.</p>
+                        <textarea name="insight_humanist" rows="3"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm resize-none"
+                            placeholder="Example: Liberation: Removing the fear from complex financial decisions through clarity."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: NARRATIVE STEPS -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-stone-100">
+                <h2
+                    class="font-mono text-xs font-bold text-stone-400 uppercase tracking-widest mb-6 border-b border-stone-100 pb-2">
+                    03. Narrative Arc</h2>
+
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div>
+                        <h3 class="font-mono text-xs text-stone-500 mb-2">Step 1: The Prompt (Intent)</h3>
+                        <textarea name="step1_text"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm h-24"
+                            placeholder="What was the user asking for?"></textarea>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div>
+                        <h3 class="font-mono text-xs text-insight-blue mb-2">Step 2: Deep Dive (Discovery)</h3>
+                        <input type="text" name="step2_item1"
+                            class="w-full bg-stone-50 border border-stone-200 p-2 rounded text-sm mb-2"
+                            placeholder="Key Point 1">
+                        <input type="text" name="step2_item2"
+                            class="w-full bg-stone-50 border border-stone-200 p-2 rounded text-sm"
+                            placeholder="Key Point 2">
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div>
+                        <h3 class="font-mono text-xs text-insight-yellow mb-2">Step 3: Automation Review (Leverage)</h3>
+                        <textarea name="step3_html"
+                            class="w-full bg-stone-50 border border-stone-200 p-3 rounded text-sm h-24"
+                            placeholder="Describe the solution..."></textarea>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div>
+                        <h3 class="font-mono text-xs text-stone-900 mb-2">Step 4: Implementation (Artifact)</h3>
+                        <input type="text" name="step4_caption"
+                            class="w-full bg-stone-50 border border-stone-200 p-2 rounded text-sm mb-2"
+                            placeholder="Image Caption (e.g. System V1)">
+                        <input type="text" name="step4_url"
+                            class="w-full bg-stone-50 border border-stone-200 p-2 rounded text-sm font-mono text-stone-400"
+                            placeholder="Image URL (optional)">
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div>
+                        <h3 class="font-mono text-xs text-insight-green mb-2">Step 5: Refinement (Validation)</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <textarea name="step5_failure"
+                                class="w-full bg-red-50 border border-red-100 p-2 rounded text-sm h-20"
+                                placeholder="Failure Mode..."></textarea>
+                            <textarea name="step5_success"
+                                class="w-full bg-emerald-50 border border-emerald-100 p-2 rounded text-sm h-20"
+                                placeholder="Correction..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OUTPUT AREA -->
+            <section class="border-t border-stone-300 pt-8">
+                <button type="button" onclick="generateJSON()"
+                    class="bg-ink text-white px-8 py-4 rounded-full font-mono text-sm uppercase tracking-widest hover:bg-stone-800 transition-all w-full md:w-auto shadow-lg">
+                    Generate JSON Payload
+                </button>
+
+                <div id="output-container" class="mt-8 hidden">
+                    <p class="font-mono text-xs text-stone-500 mb-2">Copy this block into `projects_indiv.js`:</p>
+                    <div class="relative">
+                        <pre id="json-output"
+                            class="bg-stone-900 text-green-400 font-mono text-xs p-6 rounded-xl overflow-x-auto whitespace-pre-wrap"></pre>
+                        <button onclick="copyToClipboard()"
+                            class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1 rounded">Copy</button>
+                    </div>
+                </div>
+            </section>
+
+        </form>
+    </div>
+
+    <script>
+        function generateJSON() {
+            const form = document.getElementById('cms-form');
+            const data = new FormData(form);
+
+            const project = {
+                id: data.get('id'),
+                category: data.get('category'),
+                style_type: "organic", // Default for now
+                title: data.get('title'),
+                subtitle: data.get('subtitle'),
+                tagline: data.get('tagline'),
+                author: "You",
+                tech_stack: ["Pending"],
+                metrics: { role: "Creator", timeline: "TBD", impact: "TBD", tech: "AI" },
+                summary: data.get('tagline'), // Fallback
+                insights: {
+                    analyst: data.get('insight_analyst'),
+                    businessman: data.get('insight_businessman'),
+                    visionary: data.get('insight_visionary'),
+                    humanist: data.get('insight_humanist')
+                },
+                steps: [
+                    {
+                        title: "The Prompt (Human Intent)",
+                        color: "stone-400",
+                        content_type: "text",
+                        text: data.get('step1_text')
+                    },
+                    {
+                        title: "Deep Dive Discovery",
+                        color: "insight-blue",
+                        content_type: "list",
+                        items: [data.get('step2_item1'), data.get('step2_item2')].filter(Boolean)
+                    },
+                    {
+                        title: "Automation Review",
+                        color: "insight-yellow",
+                        content_type: "html",
+                        html: data.get('step3_html')
+                    },
+                    {
+                        title: "Implementation",
+                        color: "stone-900",
+                        content_type: "image",
+                        image_url: data.get('step4_url') || "https://dummyimage.com/600x400/000/fff&text=Project+Artifact",
+                        image_caption: data.get('step4_caption')
+                    },
+                    {
+                        title: "Feedback Refinement",
+                        color: "insight-green",
+                        content_type: "failure_success",
+                        failure: data.get('step5_failure'),
+                        success: data.get('step5_success')
+                    }
+                ],
+                lessons: ["Automated entry created via CMS."]
+            };
+
+            const jsonString = JSON.stringify(project, null, 4);
+
+            document.getElementById('output-container').classList.remove('hidden');
+            document.getElementById('json-output').textContent = ",\n" + jsonString;
+
+            // Scroll to output
+            document.getElementById('output-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyToClipboard() {
+            const text = document.getElementById('json-output').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard! Now paste it at the end of the array in projects_indiv.js');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Project Detail View</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#141414",
+                        "background-light": "#ffffff",
+                        "background-dark": "#191919",
+                        "surface-light": "#f7f7f7",
+                        "surface-dark": "#262626",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .timeline-line {
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -24px;
+            width: 1px;
+            background-color: #e5e5e5;
+        }
+
+        .last-item .timeline-line {
+            display: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-primary dark:text-white font-display antialiased overflow-x-hidden">
+    <div
+        class="relative flex h-auto min-h-screen w-full flex-col mx-auto max-w-md bg-white dark:bg-background-dark shadow-xl group/design-root">
+        <div
+            class="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-4 pb-2 border-b border-transparent dark:border-white/10">
+            <div
+                class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-surface-light dark:hover:bg-surface-dark cursor-pointer transition-colors">
+                <span class="material-symbols-outlined text-primary dark:text-white"
+                    style="font-size: 24px;">arrow_back_ios_new</span>
+            </div>
+            <h2
+                class="text-primary dark:text-white text-sm font-bold uppercase tracking-wider flex-1 text-center pr-10">
+                Case Study 01</h2>
+        </div>
+        <div class="w-full h-48 sm:h-56 bg-surface-light dark:bg-surface-dark overflow-hidden relative">
+            <img alt="Hero Image"
+                class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                data-alt="Abstract geometric data visualization with warm sunlight gradients"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT9GKbPGPBmhYtp-xcpOnsRCxTM3u7CX4YKICNMMGl_VPmAKT-GPKRXCQx7v4cz7sxTa1peIiElu84v8mYJmVZUmIs7MPIqxmAZCL9p3WbYSgMyzT-7147g528WrAcO-CuO1aP0S3XIZbNY1XHYFGqj-RDIt6f-dvWRuxKdcYIUoiGsaB2G8jjVAmljzTEDjoqTu5qO1ElSVUHcJwx8rBtxqr3Zm9jItU7WIRE_l_5lU2Qy9ZxYBfl7jwOag2QacnQDy05sElsPkgv" />
+            <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent dark:from-background-dark/40">
+            </div>
+        </div>
+        <div class="px-6 pt-8 pb-4">
+            <h1 class="font-serif text-primary dark:text-white text-4xl font-bold leading-tight mb-2">Starnberg
+                Investment</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-relaxed">AI-Driven Portfolio
+                Management</p>
+        </div>
+        <div class="p-6 pt-2">
+            <div class="grid grid-cols-2 gap-4">
+                <div
+                    class="flex flex-col gap-1 rounded-xl p-5 border border-gray-100 dark:border-white/10 bg-surface-light dark:bg-surface-dark/50">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide font-semibold">Role</p>
+                    <p class="text-primary dark:text-white text-lg font-bold leading-tight">Product Lead</p>
+                </div>
+                <div
+                    class="flex flex-col gap-1 rounded-xl p-5 border border-gray-100 dark:border-white/10 bg-surface-light dark:bg-surface-dark/50">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide font-semibold">Timeline
+                    </p>
+                    <p class="text-primary dark:text-white text-lg font-bold leading-tight">3 Months</p>
+                </div>
+                <div
+                    class="flex flex-col gap-1 rounded-xl p-5 border border-gray-100 dark:border-white/10 bg-surface-light dark:bg-surface-dark/50">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide font-semibold">Impact</p>
+                    <p class="text-primary dark:text-white text-lg font-bold leading-tight">40% Efficiency</p>
+                </div>
+                <div
+                    class="flex flex-col gap-1 rounded-xl p-5 border border-gray-100 dark:border-white/10 bg-surface-light dark:bg-surface-dark/50">
+                    <p class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide font-semibold">Tech</p>
+                    <p class="text-primary dark:text-white text-lg font-bold leading-tight">GPT-4, Py</p>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 pt-6 pb-4">
+            <h2 class="text-primary dark:text-white text-2xl font-bold leading-tight tracking-tight">Methodology Flow
+            </h2>
+        </div>
+        <div class="px-6 pb-8">
+            <div class="relative flex gap-6 pb-12 group">
+                <div class="timeline-line dark:bg-white/10"></div>
+                <div class="flex-shrink-0 z-10">
+                    <div
+                        class="size-10 rounded-full bg-primary text-white dark:bg-white dark:text-primary flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-[20px]">chat</span>
+                    </div>
+                </div>
+                <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-3">The Prompt</h3>
+                    <div
+                        class="bg-surface-light dark:bg-white/5 rounded-xl p-4 border border-gray-100 dark:border-white/10 shadow-sm relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500/30"></div>
+                        <p
+                            class="text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-widest uppercase mb-2">
+                            Human Intent</p>
+                        <p class="text-sm italic text-gray-600 dark:text-gray-300 leading-relaxed">
+                            "Act as a senior portfolio manager. Analyze the following batch of incoming market data,
+                            categorize rebalancing needs by urgency (High, Medium, Low), and draft a trade plan based on
+                            our risk policy..."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex gap-6 pb-12 group">
+                <div class="timeline-line dark:bg-white/10"></div>
+                <div class="flex-shrink-0 z-10">
+                    <div
+                        class="size-10 rounded-full bg-white border-2 border-primary text-primary dark:bg-background-dark dark:border-white dark:text-white flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </div>
+                </div>
+                <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-3">Deep Dive Discovery</h3>
+                    <div
+                        class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm">
+                        <div
+                            class="px-4 py-3 border-b border-gray-100 dark:border-white/5 flex justify-between items-center bg-surface-light/50 dark:bg-white/5">
+                            <span class="text-sm font-semibold text-primary dark:text-white">Key Pain Points
+                                Identified</span>
+                            <span class="material-symbols-outlined text-gray-400 text-sm">expand_less</span>
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-blue-500 text-[18px]">check</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-300 leading-tight">Slow manual
+                                    rebalancing during volatility</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-blue-500 text-[18px]">check</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-300 leading-tight">Inconsistent
+                                    compliance checks in workflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex gap-6 pb-12 group">
+                <div class="timeline-line dark:bg-white/10"></div>
+                <div class="flex-shrink-0 z-10">
+                    <div
+                        class="size-10 rounded-full bg-white border-2 border-primary text-primary dark:bg-background-dark dark:border-white dark:text-white flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">bolt</span>
+                    </div>
+                </div>
+                <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-2">Automation Review</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                        By connecting the Portfolio API to the LLM, we reduced manual data sorting by 90%. The system
+                        now flags urgent "risk-critical" allocations instantly, allowing humans to focus on strategy
+                        rather than calculation.
+                    </p>
+                </div>
+            </div>
+            <div class="relative flex gap-6 pb-12 group">
+                <div class="timeline-line dark:bg-white/10"></div>
+                <div class="flex-shrink-0 z-10">
+                    <div
+                        class="size-10 rounded-full bg-white border-2 border-primary text-primary dark:bg-background-dark dark:border-white dark:text-white flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">play_circle</span>
+                    </div>
+                </div>
+                <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-3">Implementation</h3>
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-white/10 bg-surface-light dark:bg-surface-dark relative group/image">
+                        <img alt="App Mockup" class="w-full h-full object-cover"
+                            data-alt="Clean mobile app interface dashboard showing financial charts"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6gPommhRV3U7IAzhEbExPy-aZyhzjgskV0RKyEeUu3_x0g5PD9pR66U6YCOnCwKnWzzq4IQYl3NdXDfxngFduPdHOHsi52CFtpfPAjMc9T1LISzyR3-CnmMrlfDjkMhrm5QyQuxg8qhlMUUyFOnlciVsxmmveMP9nATNuAphe71aC9cDA01m0QKpDosHki80Ch7zFPdHV_OletgZq-4weINpYe5z_KDqbGwc0T8d39_RD9H2hTSTm-_zvP0UZfoVHfJCaDw3y4mYw" />
+                        <div
+                            class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-3 transition-opacity">
+                            <button
+                                class="bg-white/20 backdrop-blur-md border border-white/30 text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-white/30 transition-colors shadow-lg">
+                                <span class="material-symbols-outlined text-[20px]">touch_app</span>
+                                <span class="text-sm font-semibold tracking-wide">Interact with Demo</span>
+                            </button>
+                        </div>
+                        <div
+                            class="absolute bottom-3 left-3 right-3 bg-gray-900/80 backdrop-blur-md rounded-lg p-2.5 flex items-center gap-2.5 border border-white/10 shadow-lg">
+                            <div
+                                class="size-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]">
+                            </div>
+                            <span class="text-xs font-medium text-gray-200">System Operational</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex gap-6 group last-item">
+                <div class="flex-shrink-0 z-10">
+                    <div
+                        class="size-10 rounded-full bg-primary text-white dark:bg-white dark:text-primary flex items-center justify-center shadow-lg">
+                        <span class="material-symbols-outlined text-[20px]">bug_report</span>
+                    </div>
+                </div>
+                <div class="flex-1 pt-1">
+                    <h3 class="text-lg font-bold text-primary dark:text-white mb-3">Feedback Refinement</h3>
+                    <div class="space-y-2">
+                        <div
+                            class="bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-500/20 rounded-lg p-3.5">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span
+                                    class="material-symbols-outlined text-red-600 dark:text-red-400 text-[18px]">warning</span>
+                                <span
+                                    class="text-xs font-bold text-red-700 dark:text-red-300 uppercase tracking-wide">Failure</span>
+                            </div>
+                            <p class="text-xs font-medium text-red-800 dark:text-red-200 leading-relaxed">Model
+                                initially hallucinated regulatory limits for international equities allocations.</p>
+                        </div>
+                        <div class="flex justify-center py-1 text-gray-300 dark:text-gray-600">
+                            <span class="material-symbols-outlined">arrow_downward</span>
+                        </div>
+                        <div
+                            class="bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-500/20 rounded-lg p-3.5">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span
+                                    class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-[18px]">check_circle</span>
+                                <span
+                                    class="text-xs font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">Correction</span>
+                            </div>
+                            <p class="text-xs font-medium text-emerald-800 dark:text-emerald-200 leading-relaxed">
+                                Implemented RAG (Retrieval Augmented Generation) to ground trade suggestions strictly in
+                                the uploaded PDF compliance handbook.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-6 pt-2 pb-12">
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 border border-gray-100 dark:border-white/5 relative overflow-hidden">
+                <span
+                    class="material-symbols-outlined absolute -right-4 -top-4 text-[120px] text-gray-200/50 dark:text-white/5 pointer-events-none rotate-12">lightbulb</span>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-primary dark:text-white">auto_awesome</span>
+                        <h3 class="text-lg font-bold text-primary dark:text-white">Lessons Learnt</h3>
+                    </div>
+                    <p class="font-serif text-xl italic text-primary dark:text-white leading-relaxed opacity-90 mb-4">
+                        "The importance of human-in-the-loop validation cannot be overstated for financial AI."
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span
+                                class="material-symbols-outlined text-[16px] mt-0.5 text-primary dark:text-white">arrow_forward</span>
+                            <span>Trust is built through transparency, not black boxes.</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                            <span
+                                class="material-symbols-outlined text-[16px] mt-0.5 text-primary dark:text-white">arrow_forward</span>
+                            <span>Latency kills momentum in decision support tools.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="h-10"></div>
+    </div>
+
+</body>
+
+</html>
