@@ -115,6 +115,7 @@
                 // Populate Header
                 document.getElementById('case-id').textContent = `CASE STUDY #001`;
                 document.getElementById('case-category').textContent = project.category.toUpperCase();
+                document.getElementById('case-date').textContent = project.publication_date;
                 document.getElementById('main-title').innerHTML = `${project.title}<br/><span class="text-stone-400 italic font-normal">${project.subtitle}</span>`;
                 document.getElementById('tagline').textContent = project.tagline;
                 document.getElementById('summary-text').textContent = project.summary;
@@ -353,6 +354,8 @@
                     <span id="case-id">CASE STUDY #001</span>
                     <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
                     <span id="case-category">FINANCE</span>
+                    <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+                    <span id="case-date"></span>
                 </div>
 
                 <!-- LIKE BUTTON -->
