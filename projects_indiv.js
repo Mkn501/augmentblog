@@ -81,7 +81,7 @@ window.PROJECTS = [
         "subtitle": "Automated tailoring",
         "tagline": "Automated tailoring",
         "author": "Sarah",
-        "publication_date": "2023-11-05",
+        "publication_date": "05.11.2023",
         "likes": 0,
         "tech_stack": ["React", "GPT-4"],
         "metrics": {
@@ -150,7 +150,7 @@ window.PROJECTS = [
         "subtitle": "Automated Verification",
         "tagline": "v2.0.1",
         "author": "You",
-        "publication_date": "2023-11-18",
+        "publication_date": "18.11.2023",
         "likes": 0,
         "tech_stack": ["Node.js", "Puppeteer"],
         "metrics": {
