@@ -356,7 +356,7 @@
                         </div>
                     `;
 
-                    card.innerHTML = coverArtHTML + footerHTML + cornersHTML;
+
 
                     // Fetch global count
                     fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/${project.id}/`)
@@ -384,12 +384,6 @@
                                 <span class="text-xs text-stone-600 font-sans leading-tight">${insights.businessman || 'Loading...'}</span>
                             </div>
                         </div>
-                         <div class="absolute bottom-0 right-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'yellow')">
-                             <div class="insight-corner w-0 h-0 border-b-[40px] border-l-[40px] border-b-insight-yellow/80 border-l-transparent rounded-br-xl drop-shadow-sm"></div>
-                             <div class="corner-tooltip absolute bottom-12 right-2 bg-white border border-stone-100 shadow-lg px-3 py-2 rounded-lg pointer-events-none w-48 z-40 text-right">
-                                <span class="block text-[10px] font-mono font-bold text-insight-yellow uppercase">The Visionary</span>
-                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.visionary || 'Loading...'}</span>
-                            </div>
                         </div>
                         <div class="absolute bottom-0 left-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'green')">
                             <div class="insight-corner w-0 h-0 border-b-[40px] border-r-[40px] border-b-insight-green/80 border-r-transparent rounded-bl-xl drop-shadow-sm"></div>
@@ -400,9 +394,9 @@
                         </div>
                         `;
 
-
                     card.innerHTML = coverArtHTML + footerHTML + cornersHTML;
                     grid.appendChild(card);
+
                 });
 
                 // Restart animation
