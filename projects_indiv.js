@@ -45,7 +45,7 @@ window.PROJECTS = [
                 "title": "Automation Review",
                 "color": "insight-yellow",
                 "content_type": "html",
-                "html": "To avoid manual math for every listing, I built a <strong>Reverse Calculator</strong>. Instead of asking <em>'What is the yield?'</em>, it asks <em>'What should the price be to hit 3%?'</em>. Result: Fair price is <strong class=\"bg-yellow-100 px-1\">€300k</strong> (36% below asking)."
+                "html": "To avoid manual math for every listing, I built a <strong>Reverse Calculator</strong>. Instead of asking <em>'What is the yield?'</em>, it asks <em>'What should the price be to hit 3%?'</em>. Result: Fair price is <strong class=\"bg-yellow-100 px-1\">€380k</strong> (19% below asking)."
             },
             {
                 "title": "Implementation",
