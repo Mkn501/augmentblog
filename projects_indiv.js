@@ -8,7 +8,7 @@ window.PROJECTS = [
         "subtitle": "When Bond Yield Beats Rental Yield",
         "tagline": "Using AI to expose the 'Negative Leverage' trap in a premium property market.",
         "author": "You",
-        "publication_date": "2023-10-26",
+        "publication_date": "11.12.2025",
         "likes": 0,
         "tech_stack": ["Gemini 3.0", "Streamlit", "Antigravity"],
         "metrics": {
