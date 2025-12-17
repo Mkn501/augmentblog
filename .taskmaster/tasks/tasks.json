@@ -1,0 +1,164 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Project Setup and Base HTML Structure",
+        "description": "Create foundational HTML files and include required CDN dependencies",
+        "details": "1. Create index.html, cards_indiv.html, and projects_indiv.js\n2. Include Tailwind CSS CDN\n3. Add Google Fonts for Playfair Display, Plus Jakarta Sans, JetBrains Mono\n4. Set up basic DOM structure with semantic HTML\n5. Add CNAME file for custom domain\n\nPseudo-code:\n<!-- index.html -->\n<!DOCTYPE html>\n<html>\n<head>\n  <link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.x.x/dist/tailwind.min.css\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display...\" rel=\"stylesheet\">\n</head>\n<body class=\"bg-[#FAFAF9] font-sans\">\n  <!-- Content will be injected via JS -->\n  <script src=\"projects_indiv.js\"></script>\n  <script src=\"main.js\"></script>\n</body>\n</html>",
+        "testStrategy": "1. Verify all CDN resources load without errors\n2. Check console for 404 errors\n3. Validate HTML structure using W3C validator\n4. Confirm CNAME file contains mknguyen.space",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:30.017Z"
+      },
+      {
+        "id": "2",
+        "title": "Implement Global Design Language",
+        "description": "Define CSS variables and utility classes for color palette, typography, and textures",
+        "details": "1. Create :root CSS variables for all color values\n2. Implement SVG noise texture as background with 3% opacity\n3. Define font-family classes for Playfair Display (serif) and Jakarta Sans (sans)\n4. Create corner marker styles using border triangles\n\nCSS Implementation:\n:root {\n  --alabaster: #FAFAF9;\n  --carbon: #171717;\n  --stone: #78716C;\n  --blue: #0EA5E9;\n  --red: #DC2626;\n  --yellow: #D97706;\n  --green: #15803D;\n}\n\n.bg-paper {\n  background-color: var(--alabaster);\n  background-image: url('data:image/svg+xml,...');\n}",
+        "testStrategy": "1. Visual inspection of color values using devtools\n2. Verify texture opacity at 3% using color picker\n3. Check font rendering in different browsers\n4. Validate corner markers render as pure CSS triangles",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:32.576Z"
+      },
+      {
+        "id": "3",
+        "title": "Implement JSON Data Structure",
+        "description": "Create and validate projects_indiv.js with sample project data",
+        "details": "1. Define window.PROJECTS array with complete schema\n2. Include all required fields from PRD schema\n3. Add Case Study #001 as first sample entry\n4. Implement data validation function\n\nSample Entry:\nwindow.PROJECTS = [{\n  id: \"starnberg-investment\",\n  category: \"Real Estate Analysis\",\n  style_type: \"organic\",\n  title: \"The Starnberg Investment\",\n  insights: {\n    analyst: \"Risk-adjusted comparison...\",\n    businessman: \"Go/No-Go decision...\",\n    visionary: \"Vibe Coding...\",\n    humanist: \"Safety check...\"\n  },\n  // ...all other required fields\n}];",
+        "testStrategy": "1. Verify data loads via console.log(window.PROJECTS)\n2. Check for schema completeness using Object.keys\n3. Validate against JSON schema validator\n4. Test error handling for missing fields",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:34.746Z"
+      },
+      {
+        "id": "4",
+        "title": "Build Home Page Hero Section",
+        "description": "Implement the 'Foyer' section with manifesto text",
+        "details": "1. Create semantic HTML structure with <header>\n2. Apply Playfair Display for \"THE SYMBIOSIS\" title\n3. Style central column text with proper typography\n4. Ensure no navigation elements present\n\nPseudo-code:\n<header class=\"text-center py-24\">\n  <h1 class=\"font-serif text-6xl text-carbon\">THE SYMBIOSIS</h1>\n  <p class=\"max-w-2xl mx-auto mt-8 text-stone\">...manifesto text...</p>\n</header>",
+        "testStrategy": "1. Visual inspection of typography hierarchy\n2. Responsive testing at different breakpoints\n3. Verify absence of navigation elements\n4. Check color contrast ratios meet WCAG AA",
+        "priority": "medium",
+        "dependencies": [
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:36.927Z"
+      },
+      {
+        "id": "5",
+        "title": "Implement Project Grid System",
+        "description": "Create masonry layout for project cards with generative covers",
+        "details": "1. Use CSS grid with gap-12\n2. Implement three cover types via style_type:\n   - organic: radial-gradient()\n   - structured: repeating-linear-gradient()\n   - code: giant typography symbols\n3. Create card template with white background\n4. Add floating effect with shadow-paper class\n\nJavaScript Rendering:\nfunction renderProjects() {\n  const grid = document.getElementById('grid');\n  window.PROJECTS.forEach(project => {\n    const card = `<article class=\"bg-white rounded-lg shadow-paper\">\n      <div class=\"cover-${project.style_type}\"></div>\n      <h3>${project.title}</h3>\n    </article>`;\n    grid.innerHTML += card;\n  });\n}",
+        "testStrategy": "1. Verify all projects render from JSON data\n2. Check cover styles match category types\n3. Test grid responsiveness on mobile/desktop\n4. Validate shadow implementation matches design",
+        "priority": "high",
+        "dependencies": [
+          "2",
+          "3"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:39.214Z"
+      },
+      {
+        "id": "6",
+        "title": "Develop Insight Card Component",
+        "description": "Implement interactive card with hover effects and firefly animation",
+        "details": "1. Create card structure with 4:5 aspect ratio\n2. Implement corner markers using border triangles\n3. Add hover lift effect with CSS transform\n4. Create firefly animation (random corner pulses)\n\nAnimation Code:\n@keyframes firefly {\n  0% { opacity: 1; transform: scale(1); }\n  100% { opacity: 0; transform: scale(1.5); }\n}\n\nsetInterval(() => {\n  const cards = document.querySelectorAll('.card');\n  const randomCard = cards[Math.floor(Math.random() * cards.length)];\n  randomCard.querySelector('.corner').classList.add('animate-firefly');\n}, 3000);",
+        "testStrategy": "1. Test hover states on different devices\n2. Verify corner markers maintain position\n3. Check firefly animation timing and randomness\n4. Validate click target sizes meet accessibility standards",
+        "priority": "medium",
+        "dependencies": [
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:41.458Z"
+      },
+      {
+        "id": "7",
+        "title": "Implement Footer Component",
+        "description": "Create 'Curator's Desk' footer with asymmetric layout",
+        "details": "1. Build split layout using CSS grid\n2. Implement \"READY TO BUILD?\" typography\n3. Add monospace link list (LinkedIn, Email)\n4. Ensure proper vertical spacing\n\nHTML Structure:\n<footer class=\"grid grid-cols-2 gap-12\">\n  <div class=\"col-span-1\">\n    <h2 class=\"font-serif text-4xl\">READY TO BUILD?</h2>\n  </div>\n  <div class=\"col-span-1 font-mono\">\n    <ul>\n      <li><a href=\"mailto:...\">email</a></li>\n      <li><a href=\"...\">LinkedIn</a></li>\n    </ul>\n  </div>\n</footer>",
+        "testStrategy": "1. Verify asymmetric layout balance\n2. Check monospace font application\n3. Test link functionality\n4. Validate responsive behavior",
+        "priority": "low",
+        "dependencies": [
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:43.673Z"
+      },
+      {
+        "id": "8",
+        "title": "Build Project Detail Page",
+        "description": "Create cards_indiv.html template for project overlays",
+        "details": "1. Parse URL parameters for project ID\n2. Fetch matching project from window.PROJECTS\n3. Render 4-insight grid with color coding\n4. Implement methodology flow sections\n\nURL Parsing Logic:\nconst params = new URLSearchParams(window.location.search);\nconst projectId = params.get('id');\nconst project = window.PROJECTS.find(p => p.id === projectId);",
+        "testStrategy": "1. Test URL parameter handling with various IDs\n2. Verify all data sections render correctly\n3. Check color coding matches insight types\n4. Validate back navigation to home page",
+        "priority": "high",
+        "dependencies": [
+          "3",
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:45.907Z"
+      },
+      {
+        "id": "9",
+        "title": "Integrate CounterAPI for Likes",
+        "description": "Implement global like counter functionality",
+        "details": "1. Create API helper functions for GET and POST\n2. Add click handlers to heart icons\n3. Implement optimistic UI updates\n4. Handle errors and rollbacks\n\nAPI Integration:\nasync function getLikes(projectId) {\n  const response = await fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/project-${projectId}/`);\n  return response.json().value;\n}\n\nasync function incrementLike(projectId) {\n  await fetch(`https://api.counterapi.dev/v1/mkn501-symbiosis/project-${projectId}/up`, {method: 'GET'});\n}",
+        "testStrategy": "1. Verify API calls in Network tab\n2. Test optimistic update behavior\n3. Check error handling when offline\n4. Validate cross-browser compatibility",
+        "priority": "medium",
+        "dependencies": [
+          "5",
+          "8"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:48.203Z"
+      },
+      {
+        "id": "10",
+        "title": "Deployment Configuration",
+        "description": "Set up GitHub Pages deployment and DNS",
+        "details": "1. Configure GitHub Pages to deploy from main branch\n2. Enable HTTPS enforcement\n3. Verify CNAME file contains mknguyen.space\n4. Update DNS records in Namecheap:\n   - A records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153\n   - CNAME: www -> mkn501.github.io",
+        "testStrategy": "1. Verify live URL loads without errors\n2. Check HTTPS enforcement\n3. Test DNS propagation using dig command\n4. Validate custom domain in GitHub settings",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-16T22:56:50.444Z"
+      }
+    ],
+    "metadata": {
+      "version": "1.0.0",
+      "lastModified": "2025-12-16T22:56:50.444Z",
+      "taskCount": 10,
+      "completedCount": 10,
+      "tags": [
+        "master"
+      ]
+    }
+  }
+}
