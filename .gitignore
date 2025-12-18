@@ -4,6 +4,7 @@ server.log
 test-results/
 *.env 
 *md 
+*.code-workspace
 
 # Logs
 logs
