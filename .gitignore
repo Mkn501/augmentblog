@@ -2,8 +2,8 @@ node_modules/
 package-lock.json
 server.log
 test-results/
-*.md
 *.env 
+*md 
 
 # Logs
 logs

@@ -131,7 +131,7 @@
       {
         "id": "10",
         "title": "Deployment Configuration",
-        "description": "Set up GitHub Pages deployment and DNS",
+        "description": "Set up GitHub Pages (Free Tier) deployment and DNS",
         "details": "1. Configure GitHub Pages to deploy from main branch\n2. Enable HTTPS enforcement\n3. Verify CNAME file contains mknguyen.space\n4. Update DNS records in Namecheap:\n   - A records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153\n   - CNAME: www -> mkn501.github.io",
         "testStrategy": "1. Verify live URL loads without errors\n2. Check HTTPS enforcement\n3. Test DNS propagation using dig command\n4. Validate custom domain in GitHub settings",
         "priority": "medium",
@@ -149,6 +149,18 @@
         "status": "done",
         "subtasks": [],
         "updatedAt": "2025-12-16T22:56:50.444Z"
+      },
+      {
+        "id": "11",
+        "title": "Implement Video Support for Project Details",
+        "description": "Enable MP4 video playback in project detail steps (Nice to Have)",
+        "details": "1. Update projects_indiv.js schema to support content_type: 'video'\n2. Update cards_indiv.html to render <video> tags\n3. Ensure free tier limits are respected (<10MB)\n4. Implement muted/autoplay/loop behavior",
+        "testStrategy": "1. Verify video renders correctly\n2. Check mobile playsinline behavior\n3. Verify fallback behavior",
+        "priority": "low",
+        "dependencies": [],
+        "status": "deferred",
+        "subtasks": [],
+        "updatedAt": "2025-12-18T09:32:00.000Z"
       }
     ],
     "metadata": {
