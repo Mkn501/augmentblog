@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AugmentBlog | Human Intent & Machine Velocity</title>
-    <meta property="og:title" content="AugmentBlog | Human Intent & Machine Velocity">
+    <title>AugmentBlog | Menschliche Absicht & Maschinengeschwindigkeit</title>
+    <meta property="og:title" content="AugmentBlog | Menschliche Absicht & Maschinengeschwindigkeit">
     <meta property="og:description"
-        content="A curated space for the intersection of human intent and machine velocity.">
+        content="Ein kuratierter Raum für die Schnittstelle von menschlicher Absicht und Maschinengeschwindigkeit.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mknguyen.space/">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -151,13 +151,12 @@
         </h1>
 
         <div class="font-mono text-sm md:text-base text-stone tracking-widest uppercase mb-12">
-            INTELLIGENCE, AMPLIFIED.
+            INTELLIGENZ, VERSTÄRKT.
         </div>
 
         <div
             class="max-w-xl mx-auto text-lg md:text-xl leading-relaxed text-ink/80 font-serif italic border-l-2 border-stone/20 pl-6 text-left">
-            "AI is not the pilot. It is the engine. Welcome to my laboratory of human-guided automation, where we turn
-            raw data into strategic clarity."
+            "KI ist nicht der Pilot. Sie ist der Motor. Willkommen in meinem Labor für menschengeführte Automatisierung, wo wir Rohdaten in strategische Klarheit verwandeln."
         </div>
 
         <!-- Clean Header: No Actions -->
@@ -168,10 +167,10 @@
         <div class="max-w-7xl mx-auto flex gap-3 overflow-x-auto no-scrollbar">
             <button onclick="filterGallery('All')"
                 class="filter-btn px-5 py-2 rounded-full bg-ink text-white text-xs font-bold uppercase tracking-wide shadow-md transition-transform active:scale-95 border border-transparent"
-                data-filter="All">All</button>
+                data-filter="All">Alle</button>
             <button onclick="filterGallery('Case Study')"
                 class="filter-btn px-5 py-2 rounded-full bg-white border border-stone-200 text-stone-600 hover:text-ink hover:border-stone-400 text-xs font-bold uppercase tracking-wide transition-colors active:scale-95"
-                data-filter="Case Study">Case Studies</button>
+                data-filter="Case Study">Fallstudien</button>
             <button onclick="filterGallery('Essay')"
                 class="filter-btn px-5 py-2 rounded-full bg-white border border-stone-200 text-stone-600 hover:text-ink hover:border-stone-400 text-xs font-bold uppercase tracking-wide transition-colors active:scale-95"
                 data-filter="Essay">Essays</button>
@@ -187,7 +186,7 @@
         <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
             <!-- Dynamic Content will be injected here -->
             <div class="col-span-full text-center py-24 text-stone-400 font-mono animate-pulse">
-                Loading Exhibition...
+                Lade Ausstellung...
             </div>
         </div>
     </main>
@@ -196,23 +195,23 @@
     <footer class="border-t border-stone-300 bg-white py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
             <div>
-                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-4">The Curator</div>
-                <h2 class="text-5xl md:text-7xl font-serif font-black text-ink tracking-tight">READY TO<br />BUILD?</h2>
+                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-4">Der Kurator</div>
+                <h2 class="text-5xl md:text-7xl font-serif font-black text-ink tracking-tight">BEREIT ZU<br />BAUEN?</h2>
             </div>
 
             <div class="font-mono text-sm text-stone-600 space-y-2 text-right w-full md:w-auto">
-                <div class="block border-b border-stone-100 pb-2 mb-2">Connect</div>
+                <div class="block border-b border-stone-100 pb-2 mb-2">Verbinden</div>
                 <a href="https://www.linkedin.com/in/minh-khoa-nguyen-phd-0b1785163/" target="_blank"
                     class="block hover:text-insight-blue transition-colors">LinkedIn</a>
-                <a href="mailto:minkngu@gmail.com" class="block hover:text-insight-blue transition-colors">Email</a>
-                <div class="block border-b border-stone-100 pb-2 mb-2 mt-4">Language</div>
-                <a href="index_de.html" class="block hover:text-insight-blue transition-colors">Deutsch</a>
+                <a href="mailto:minkngu@gmail.com" class="block hover:text-insight-blue transition-colors">E-Mail</a>
+                <div class="block border-b border-stone-100 pb-2 mb-2 mt-4">Sprache</div>
+                <a href="index.html" class="block hover:text-insight-blue transition-colors">English</a>
             </div>
         </div>
     </footer>
 
     <!-- SCRIPT FOR DYNAMIC LOADING -->
-    <script src="projects_indiv.js"></script>
+    <script src="projects_indiv_de.js"></script>
     <script>
         // Store projects globally
         let currentFilter = 'All';
@@ -240,7 +239,7 @@
                 const grid = document.getElementById('project-grid');
 
                 if (!projects) {
-                    grid.innerHTML = '<div class="col-span-full text-center py-24 text-red-500 font-mono">Error loading projects.</div>';
+                    grid.innerHTML = '<div class="col-span-full text-center py-24 text-red-500 font-mono">Fehler beim Laden der Projekte.</div>';
                     return;
                 }
 
@@ -253,7 +252,7 @@
                     : projects.filter(p => p.type === currentFilter);
 
                 if (filteredProjects.length === 0) {
-                    grid.innerHTML = `<div class="col-span-full text-center py-24 text-stone-400 font-serif italic text-xl">No projects found in '${currentFilter}'.</div>`;
+                    grid.innerHTML = `<div class="col-span-full text-center py-24 text-stone-400 font-serif italic text-xl">Keine Projekte in '${currentFilter}' gefunden.</div>`;
                     return;
                 }
 
@@ -262,7 +261,7 @@
                     // Add existing classes
                     card.className = "card-container group relative bg-white rounded-xl shadow-paper hover:shadow-lift transition-all duration-500 ease-out h-[500px] flex flex-col overflow-hidden border border-stone-100/50 " + (project.coming_soon ? "cursor-default opacity-90" : "cursor-pointer");
                     if (!project.coming_soon) {
-                        card.onclick = () => window.location.href = `cards_indiv.html?id=${project.id}`;
+                        card.onclick = () => window.location.href = `cards_indiv_de.html?id=${project.id}`;
                     }
 
                     // Generate HTML based on style_type
@@ -273,7 +272,7 @@
                                 <!-- Decorative Braces -->
                                 <div class="absolute text-[180px] font-mono font-bold text-ink leading-none select-none -left-4 top-1/2 -translate-y-1/2 opacity-100">{</div>
                                 <div class="absolute text-[180px] font-mono font-bold text-ink leading-none select-none -right-4 top-1/2 -translate-y-1/2 opacity-100">}</div>
-                                
+
                                 <div class="relative z-10 text-center">
                                     <div class="font-mono text-[10px] text-stone-500 mb-6 uppercase tracking-widest border border-stone-200 inline-block px-2 py-1 rounded bg-white">
                                         #00${index + 1} ${project.category}
@@ -283,8 +282,8 @@
                                 </div>
                                 <div class="absolute inset-0 bg-white/0 group-hover:bg-white/50 backdrop-blur-[1px] transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-20">
                                     ${project.coming_soon ?
-                                `<span class="bg-stone-100 text-stone-400 font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest cursor-not-allowed border border-stone-200">Coming Soon</span>` :
-                                `<span class="bg-ink text-white font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">View Project</span>`
+                                `<span class="bg-stone-100 text-stone-400 font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest cursor-not-allowed border border-stone-200">Kommt bald</span>` :
+                                `<span class="bg-ink text-white font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">Projekt ansehen</span>`
                             }
                                 </div>
                             </div>
@@ -297,7 +296,7 @@
                                     <div class="mb-8">
                                         <span class="font-mono text-[10px] text-stone-500 uppercase tracking-[0.2em] border border-stone-200 px-3 py-1.5 rounded-sm bg-white">${'#00' + (index + 1) + ' ' + project.category}</span>
                                     </div>
-                                    
+
                                     <!-- Title Block -->
                                     <div class="mb-8">
                                         <h2 class="text-4xl font-serif font-black text-ink mb-3 leading-[0.9] tracking-tight">${project.title}</h2>
@@ -306,8 +305,8 @@
                                 </div>
                                 <div class="absolute inset-0 bg-white/0 group-hover:bg-white/50 backdrop-blur-[1px] transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-20">
                                     ${project.coming_soon ?
-                                `<span class="bg-stone-100 text-stone-400 font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest cursor-not-allowed border border-stone-200">Coming Soon</span>` :
-                                `<span class="bg-ink text-white font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">View Project</span>`
+                                `<span class="bg-stone-100 text-stone-400 font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest cursor-not-allowed border border-stone-200">Kommt bald</span>` :
+                                `<span class="bg-ink text-white font-mono text-xs px-6 py-3 rounded-full uppercase tracking-widest transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">Projekt ansehen</span>`
                             }
                                 </div>
                             </div>
@@ -318,13 +317,13 @@
                                 <!--Subtle Background Gradients-->
                                 <div class="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] rounded-full opacity-30 bg-blue-100 blur-3xl"></div>
                                 <div class="absolute bottom-[-20%] left-[-20%] w-[80%] h-[80%] rounded-full opacity-30 bg-red-100 blur-3xl"></div>
-                                
+
                                 <div class="relative z-10 w-full max-w-[280px]">
                                     <!-- Category Tag -->
                                     <div class="mb-8">
                                         <span class="font-mono text-[10px] text-stone-500 uppercase tracking-[0.2em] border border-stone-200 px-3 py-1.5 rounded-sm bg-white/80 backdrop-blur-sm">#00${index + 1} ${project.category}</span>
                                     </div>
-                                    
+
                                     <!-- Title Block -->
                                     <div class="mb-8">
                                         <h2 class="text-4xl font-serif font-black text-ink mb-3 leading-[0.9] tracking-tight">${project.title}</h2>
@@ -339,7 +338,7 @@
 
                                 <!--Hover Action-->
                                 <div class="absolute inset-0 bg-white/0 group-hover:bg-white/60 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-20">
-                                    <span class="bg-ink text-white font-mono text-xs px-8 py-4 rounded-full uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">Open Case</span>
+                                    <span class="bg-ink text-white font-mono text-xs px-8 py-4 rounded-full uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">Fall öffnen</span>
                                 </div>
                             </div>
                         `;
@@ -360,7 +359,7 @@
                     // Top Center Date Badge (No Box)
                     const dateHTML = `
                         <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                            <span class="text-[10px] font-mono text-stone-500 tracking-widest uppercase">${project.publication_date || 'No Date'}</span>
+                            <span class="text-[10px] font-mono text-stone-500 tracking-widest uppercase">${project.publication_date || 'Kein Datum'}</span>
                         </div>
                     `;
 
@@ -379,29 +378,29 @@
                         <div class="absolute top-0 left-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'blue')">
                             <div class="insight-corner w-0 h-0 border-t-[40px] border-r-[40px] border-t-insight-blue/80 border-r-transparent rounded-tl-xl drop-shadow-sm"></div>
                             <div class="corner-tooltip absolute top-12 left-2 bg-white border border-stone-100 shadow-lg px-3 py-2 rounded-lg pointer-events-none w-48 z-40">
-                                <span class="block text-[10px] font-mono font-bold text-insight-blue uppercase">The Analyst</span>
-                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.analyst || 'Loading...'}</span>
+                                <span class="block text-[10px] font-mono font-bold text-insight-blue uppercase">Der Analyst</span>
+                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.analyst || 'Wird geladen...'}</span>
                             </div>
                         </div>
                         <div class="absolute top-0 right-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'red')">
                             <div class="insight-corner w-0 h-0 border-t-[40px] border-l-[40px] border-t-insight-red/80 border-l-transparent rounded-tr-xl drop-shadow-sm"></div>
                             <div class="corner-tooltip absolute top-12 right-2 bg-white border border-stone-100 shadow-lg px-3 py-2 rounded-lg pointer-events-none w-48 z-40 text-right">
-                                <span class="block text-[10px] font-mono font-bold text-insight-red uppercase">The Businessman</span>
-                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.businessman || 'Loading...'}</span>
+                                <span class="block text-[10px] font-mono font-bold text-insight-red uppercase">Der Geschäftsmann</span>
+                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.businessman || 'Wird geladen...'}</span>
                             </div>
                         </div>
                          <div class="absolute bottom-0 right-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'yellow')">
                              <div class="insight-corner w-0 h-0 border-b-[40px] border-l-[40px] border-b-insight-yellow/80 border-l-transparent rounded-br-xl drop-shadow-sm"></div>
                              <div class="corner-tooltip absolute bottom-12 right-2 bg-white border border-stone-100 shadow-lg px-3 py-2 rounded-lg pointer-events-none w-48 z-40 text-right">
-                                <span class="block text-[10px] font-mono font-bold text-insight-yellow uppercase">The Visionary</span>
-                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.visionary || 'Loading...'}</span>
+                                <span class="block text-[10px] font-mono font-bold text-insight-yellow uppercase">Der Visionär</span>
+                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.visionary || 'Wird geladen...'}</span>
                             </div>
                         </div>
                         <div class="absolute bottom-0 left-0 p-4 z-30 group/corner" onclick="event.stopPropagation(); showInsight(event, 'green')">
                             <div class="insight-corner w-0 h-0 border-b-[40px] border-r-[40px] border-b-insight-green/80 border-r-transparent rounded-bl-xl drop-shadow-sm"></div>
                             <div class="corner-tooltip absolute bottom-12 left-2 bg-white border border-stone-100 shadow-lg px-3 py-2 rounded-lg pointer-events-none w-48 z-40">
-                                <span class="block text-[10px] font-mono font-bold text-insight-green uppercase">The Humanist</span>
-                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.humanist || 'Loading...'}</span>
+                                <span class="block text-[10px] font-mono font-bold text-insight-green uppercase">Der Humanist</span>
+                                <span class="text-xs text-stone-600 font-sans leading-tight">${insights.humanist || 'Wird geladen...'}</span>
                             </div>
                         </div>
                         `;
@@ -415,13 +414,13 @@
                 startRandomFlicker();
 
             } catch (error) {
-                console.error("Failed to load gallery:", error);
+                console.error("Fehler beim Laden der Galerie:", error);
             }
         }
 
         function showInsight(event, color) {
             event.stopPropagation();
-            console.log(`Showing insight for: ${color}`);
+            console.log(`Zeige Einblick für: ${color}`);
         }
 
         function startRandomFlicker() {

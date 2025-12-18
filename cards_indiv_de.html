@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AugmentBlog | Project View</title>
-    <meta property="og:title" content="AugmentBlog | Project View">
-    <meta property="og:description" content="Detailed project view.">
+    <title>AugmentBlog | Projektansicht</title>
+    <meta property="og:title" content="AugmentBlog | Projektansicht">
+    <meta property="og:description" content="Detaillierte Projektansicht.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mknguyen.space/">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -82,7 +82,7 @@
 <body class="antialiased min-h-screen flex flex-col font-sans selection:bg-stone-200">
 
     <!-- DYNAMIC CONTENT SCRIPT -->
-    <script src="projects_indiv.js"></script>
+    <script src="projects_indiv_de.js"></script>
     <script>
         function loadProject() {
             const params = new URLSearchParams(window.location.search);
@@ -107,13 +107,13 @@
                 }
 
                 if (!project) {
-                    console.error('No project data available.');
-                    document.body.innerHTML = '<div class="p-12 text-center text-red-600 font-mono">Project not found.</div>';
+                    console.error('Keine Projektdaten verfügbar.');
+                    document.body.innerHTML = '<div class="p-12 text-center text-red-600 font-mono">Projekt nicht gefunden.</div>';
                     return;
                 }
 
                 // Populate Header
-                document.getElementById('case-id').textContent = `CASE STUDY #001`;
+                document.getElementById('case-id').textContent = `FALLSTUDIE #001`;
                 document.getElementById('case-category').textContent = project.category.toUpperCase();
                 document.getElementById('case-date').textContent = project.publication_date;
                 document.getElementById('main-title').innerHTML = `${project.title}<br/><span class="text-stone-400 italic font-normal">${project.subtitle}</span>`;
@@ -153,7 +153,7 @@
                             contentHTML = `
                                 <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
                                     <div class="px-6 py-4 border-b border-stone-100 bg-stone-50/50 flex justify-between items-center">
-                                        <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Key Points</span>
+                                        <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Wichtige Punkte</span>
                                     </div>
                                     <div class="p-6 space-y-4">${listItems}</div>
                                 </div>`;
@@ -170,7 +170,7 @@
                                     <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 border border-white/50 shadow-sm">
                                         <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                                         <span class="text-xs font-mono font-bold text-stone-600 uppercase tracking-wide">${step.image_caption || 'Visual'}</span>
-                                        ${step.link_url ? '<span class="ml-auto text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500">OPEN ↗</span>' : ''}
+                                        ${step.link_url ? '<span class="ml-auto text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500">ÖFFNEN ↗</span>' : ''}
                                     </div>
                                 </div>`;
 
@@ -185,7 +185,7 @@
                                     <div class="bg-red-50 border border-red-100 rounded-lg p-4 flex gap-4 items-start">
                                         <div class="bg-red-100 text-red-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">!</div>
                                         <div>
-                                            <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Failure Mode</span>
+                                            <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Fehlermodus</span>
                                             <p class="text-sm text-red-900/80">${step.failure}</p>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                     <div class="bg-emerald-50 border border-emerald-100 rounded-lg p-4 flex gap-4 items-start">
                                         <div class="bg-emerald-100 text-emerald-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">✓</div>
                                         <div>
-                                            <span class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Correction</span>
+                                            <span class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Korrektur</span>
                                             <p class="text-sm text-emerald-900/80">${step.success}</p>
                                         </div>
                                     </div>
@@ -223,7 +223,7 @@
 
                             <div class="bg-white/50 p-6 rounded-xl shadow-sm border border-stone-100/50 backdrop-blur-sm">
                                 <h3 class="font-mono text-xs font-bold text-stone-500 uppercase tracking-widest mb-4">
-                                    Tech Stack
+                                    Technologie-Stack
                                 </h3>
                                 <div class="flex flex-wrap gap-2">
                                     ${project.tech_stack.map(tech => `
@@ -248,7 +248,7 @@
                         </li>
                     `).join('');
                 } else if (lessonsList) {
-                    lessonsList.innerHTML = '<li class="text-sm text-stone-400 italic">No specific lessons recorded.</li>';
+                    lessonsList.innerHTML = '<li class="text-sm text-stone-400 italic">Keine spezifischen Lektionen aufgezeichnet.</li>';
                 }
 
                 // Populate How this Generalizes
@@ -256,20 +256,20 @@
                 if (generalizesText && project.generalizes) {
                     generalizesText.textContent = project.generalizes;
                 } else if (generalizesText) {
-                    generalizesText.textContent = 'No specific generalization recorded.';
+                    generalizesText.textContent = 'Keine spezifische Verallgemeinerung aufgezeichnet.';
                 }
 
                 // Initialize Like System
                 initLikeSystem(project);
 
             } catch (error) {
-                console.error("Failed to load project:", error);
+                console.error("Projekt konnte nicht geladen werden:", error);
             }
         }
 
         function updateInsight(id, text) {
             const el = document.getElementById(id);
-            if (el) el.textContent = text || 'Loading...';
+            if (el) el.textContent = text || 'Wird geladen...';
         }
 
         document.addEventListener('DOMContentLoaded', loadProject);
@@ -295,7 +295,7 @@
                     updateLikeUI();
                 })
                 .catch(err => {
-                    console.error("CounterAPI Error:", err);
+                    console.error("CounterAPI-Fehler:", err);
                     likeCount = 0;
                     updateLikeUI();
                 });
@@ -342,7 +342,7 @@
                         likeCount = data.count;
                         updateLikeUI();
                     })
-                    .catch(err => console.error("Like API Error:", err));
+                    .catch(err => console.error("Like API-Fehler:", err));
             } else {
                 // UNLIKE: Call /down endpoint
                 isLiked = false;
@@ -367,17 +367,17 @@
     <!-- HERO SECTION (Compact for Detail Page) -->
     <header class="pt-12 pb-12 px-6 md:px-12 max-w-7xl mx-auto w-full relative">
         <nav class="font-mono text-xs text-stone-500 tracking-widest uppercase flex items-center gap-4 mb-8">
-            <a href="index.html" class="hover:text-ink transition-colors flex items-center gap-2">
-                <span class="text-lg">←</span> BACK TO GALLERY
+            <a href="index_de.html" class="hover:text-ink transition-colors flex items-center gap-2">
+                <span class="text-lg">←</span> ZURÜCK ZUR GALERIE
             </a>
         </nav>
 
         <div class="max-w-4xl">
             <div class="flex justify-between items-start mb-4">
                 <div class="font-mono text-xs text-stone-500 flex items-center gap-2">
-                    <span id="case-id">CASE STUDY #001</span>
+                    <span id="case-id">FALLSTUDIE #001</span>
                     <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
-                    <span id="case-category">FINANCE</span>
+                    <span id="case-category">FINANZEN</span>
                     <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
                     <span id="case-date"></span>
                 </div>
@@ -422,7 +422,7 @@
                 class="p-4 bg-white border-l-4 border-insight-blue rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
                 <div class="text-[10px] font-mono font-bold text-insight-blue uppercase mb-2 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-insight-blue"></span>
-                    The Analyst
+                    Der Analyst
                 </div>
                 <div id="insight-analyst-text" class="text-sm font-bold text-stone-700 leading-tight">
                     <!-- Dynamic -->
@@ -434,7 +434,7 @@
                 class="p-4 bg-white border-l-4 border-insight-red rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
                 <div class="text-[10px] font-mono font-bold text-insight-red uppercase mb-2 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-insight-red"></span>
-                    The Businessman
+                    Der Geschäftsmann
                 </div>
                 <div id="insight-businessman-text" class="text-sm font-bold text-stone-700 leading-tight">
                     <!-- Dynamic -->
@@ -446,7 +446,7 @@
                 class="p-4 bg-white border-l-4 border-insight-yellow rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
                 <div class="text-[10px] font-mono font-bold text-insight-yellow uppercase mb-2 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-insight-yellow"></span>
-                    The Visionary
+                    Der Visionär
                 </div>
                 <div id="insight-visionary-text" class="text-sm font-bold text-stone-700 leading-tight">
                     <!-- Dynamic -->
@@ -458,7 +458,7 @@
                 class="p-4 bg-white border-l-4 border-insight-green rounded-r shadow-sm group hover:shadow-lg transition-all duration-300">
                 <div class="text-[10px] font-mono font-bold text-insight-green uppercase mb-2 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-insight-green"></span>
-                    The Humanist
+                    Der Humanist
                 </div>
                 <div id="insight-humanist-text" class="text-sm font-bold text-stone-700 leading-tight">
                     <!-- Dynamic -->
@@ -477,15 +477,15 @@
                 <div class="pl-8 relative">
                     <div class="absolute left-[-4px] top-2 w-2 h-2 bg-stone-400 rounded-full"></div>
                     <h3 class="font-mono text-sm font-bold text-stone-400 uppercase tracking-widest mb-4">
-                        01. The Prompt (Human Intent)
+                        01. Die Aufforderung (Menschliche Absicht)
                     </h3>
                     <div
                         class="bg-white p-8 rounded-lg shadow-sm border border-stone-100 font-serif italic text-lg text-ink/80 leading-relaxed relative">
                         <span class="absolute top-4 left-4 text-6xl text-stone-100 font-serif font-bold -z-10">"</span>
                         <span id="step-1-text">
-                            Act as a senior portfolio manager. Analyze the following batch of incoming market data,
-                            categorize rebalancing needs by urgency (High, Medium, Low), and draft a trade plan based on
-                            our risk policy...
+                            Handeln Sie als leitender Portfoliomanager. Analysieren Sie die folgende Charge eingehender Marktdaten,
+                            kategorisieren Sie den Umschichtungsbedarf nach Dringlichkeit (Hoch, Mittel, Niedrig) und entwerfen Sie einen Handelsplan auf der Grundlage
+                            unserer Risikorichtlinie...
                         </span>
                     </div>
                 </div>
@@ -495,26 +495,25 @@
                     <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-blue rounded-full ring-4 ring-canvas">
                     </div>
                     <h3 class="font-mono text-sm font-bold text-insight-blue uppercase tracking-widest mb-4">
-                        02. Deep Dive Discovery
+                        02. Tiefe Einblicke
                     </h3>
                     <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
                         <div
                             class="px-6 py-4 border-b border-stone-100 bg-stone-50/50 flex justify-between items-center">
-                            <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Key Pain Points
-                                Identified</span>
+                            <span class="text-sm font-bold text-ink font-mono uppercase tracking-wide">Identifizierte Hauptschmerzpunkte</span>
                         </div>
                         <div class="p-6 space-y-4">
                             <div class="flex items-start gap-4">
                                 <span
                                     class="bg-blue-50 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
-                                <span class="text-base text-stone-600 leading-tight">Slow manual rebalancing during
-                                    volatility.</span>
+                                <span class="text-base text-stone-600 leading-tight">Langsame manuelle Neugewichtung bei
+                                    Volatilität.</span>
                             </div>
                             <div class="flex items-start gap-4">
                                 <span
                                     class="bg-blue-50 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
-                                <span class="text-base text-stone-600 leading-tight">Inconsistent compliance checks in
-                                    workflow.</span>
+                                <span class="text-base text-stone-600 leading-tight">Inkonsistente Compliance-Prüfungen im
+                                    Workflow.</span>
                             </div>
                         </div>
                     </div>
@@ -525,12 +524,12 @@
                     <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-yellow rounded-full ring-4 ring-canvas">
                     </div>
                     <h3 class="font-mono text-sm font-bold text-insight-yellow uppercase tracking-widest mb-4">
-                        03. Automation Review
+                        03. Automatisierungsüberprüfung
                     </h3>
                     <p class="text-lg font-serif text-ink leading-relaxed mb-6">
-                        By connecting the Portfolio API to the LLM, we reduced manual data sorting by <strong
-                            class="bg-yellow-100 px-1">90%</strong>. The system now flags urgent "risk-critical"
-                        allocations instantly, allowing humans to focus on strategy rather than calculation.
+                        Durch die Anbindung der Portfolio-API an das LLM haben wir die manuelle Datensortierung um <strong
+                            class="bg-yellow-100 px-1">90%</strong> reduziert. Das System meldet nun sofort dringende "risikokritische"
+                        Allokationen, so dass sich die Menschen auf die Strategie statt auf die Berechnung konzentrieren können.
                     </p>
                 </div>
 
@@ -538,7 +537,7 @@
                 <div class="pl-8 relative">
                     <div class="absolute left-[-4px] top-2 w-2 h-2 bg-stone-900 rounded-full ring-4 ring-canvas"></div>
                     <h3 class="font-mono text-sm font-bold text-stone-900 uppercase tracking-widest mb-4">
-                        04. Implementation
+                        04. Implementierung
                     </h3>
 
                     <div
@@ -551,7 +550,7 @@
                             class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 border border-white/50 shadow-sm">
                             <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                             <span class="text-xs font-mono font-bold text-stone-600 uppercase tracking-wide">System
-                                Operational</span>
+                                Betriebsbereit</span>
                         </div>
                     </div>
                 </div>
@@ -561,7 +560,7 @@
                     <div class="absolute left-[-4px] top-2 w-2 h-2 bg-insight-green rounded-full ring-4 ring-canvas">
                     </div>
                     <h3 class="font-mono text-sm font-bold text-insight-green uppercase tracking-widest mb-4">
-                        05. Feedback Refinement
+                        05. Feedback-Verfeinerung
                     </h3>
 
                     <div class="space-y-4">
@@ -570,10 +569,9 @@
                                 class="bg-red-100 text-red-600 rounded-full w-6 h-6 flex items-center justify-center shrink-0 text-xs font-bold">
                                 !</div>
                             <div>
-                                <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Failure
-                                    Mode</span>
-                                <p class="text-sm text-red-900/80">Model initially hallucinated regulatory limits for
-                                    international equities allocations.</p>
+                                <span class="block text-xs font-mono font-bold text-red-700 uppercase mb-1">Fehlermodus</span>
+                                <p class="text-sm text-red-900/80">Das Modell halluzinierte anfangs regulatorische Grenzen für
+                                    internationale Aktienallokationen.</p>
                             </div>
                         </div>
 
@@ -587,9 +585,9 @@
                                 ✓</div>
                             <div>
                                 <span
-                                    class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Correction</span>
-                                <p class="text-sm text-emerald-900/80">Implemented RAG (Retrieval Augmented Generation)
-                                    to ground trade suggestions strictly in the uploaded PDF compliance handbook.</p>
+                                    class="block text-xs font-mono font-bold text-emerald-700 uppercase mb-1">Korrektur</span>
+                                <p class="text-sm text-emerald-900/80">Implementierung von RAG (Retrieval Augmented Generation)
+                                    um Handelsvorschläge strikt auf das hochgeladene PDF-Compliance-Handbuch zu stützen.</p>
                             </div>
                         </div>
                     </div>
@@ -611,7 +609,7 @@
 
                         <div class="relative z-10">
                             <h3 class="font-serif text-2xl font-bold text-ink mb-6 flex items-center gap-2">
-                                Lessons Learnt
+                                Gelernte Lektionen
                             </h3>
                             <!-- Quote removed as it's not in JSON data schema yet -->
                             <ul id="lessons-list" class="space-y-4">
@@ -623,7 +621,7 @@
                     <!-- HOW THIS GENERALIZES -->
                     <div class="mt-8 bg-white/50 p-6 rounded-xl shadow-sm border border-stone-100/50 backdrop-blur-sm">
                         <h3 class="font-mono text-xs font-bold text-stone-500 uppercase tracking-widest mb-3">
-                            How this Generalizes
+                            Wie sich dies verallgemeinern lässt
                         </h3>
                         <p id="generalizes-text" class="text-sm text-stone-600 font-sans leading-relaxed">
                             <!-- Dynamic Content -->
@@ -646,17 +644,17 @@
     <footer class="border-t border-stone-300 bg-white py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
             <div>
-                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-4">The Curator</div>
-                <h2 class="text-5xl md:text-7xl font-serif font-black text-ink tracking-tight">READY TO<br />BUILD?</h2>
+                <div class="font-mono text-xs text-stone-400 uppercase tracking-widest mb-4">Der Kurator</div>
+                <h2 class="text-5xl md:text-7xl font-serif font-black text-ink tracking-tight">BEREIT ZU<br />BAUEN?</h2>
             </div>
 
             <div class="font-mono text-sm text-stone-600 space-y-2 text-right w-full md:w-auto">
-                <div class="block border-b border-stone-100 pb-2 mb-2">Connect</div>
+                <div class="block border-b border-stone-100 pb-2 mb-2">Verbinden</div>
                 <a href="https://www.linkedin.com/in/minh-khoa-nguyen-phd-0b1785163/" target="_blank"
                     class="block hover:text-insight-blue transition-colors">LinkedIn</a>
-                <a href="mailto:minkngu@gmail.com" class="block hover:text-insight-blue transition-colors">Email</a>
-                <div class="block border-b border-stone-100 pb-2 mb-2 mt-4">Language</div>
-                <a href="cards_indiv_de.html" class="block hover:text-insight-blue transition-colors">Deutsch</a>
+                <a href="mailto:minkngu@gmail.com" class="block hover:text-insight-blue transition-colors">E-Mail</a>
+                <div class="block border-b border-stone-100 pb-2 mb-2 mt-4">Sprache</div>
+                <a href="cards_indiv.html" class="block hover:text-insight-blue transition-colors">English</a>
             </div>
         </div>
     </footer>
