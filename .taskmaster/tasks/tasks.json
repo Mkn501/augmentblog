@@ -161,12 +161,68 @@
         "status": "deferred",
         "subtasks": [],
         "updatedAt": "2025-12-18T09:32:00.000Z"
+      },
+      {
+        "id": "12",
+        "title": "Add visualization icons to card covers",
+        "description": "Add a context-specific icon or symbol to the front cover of each project card to improve visual storytelling.",
+        "details": "1. Update `loadGallery()` in `index.html` to read `project.symbol` from the data.\n2. In the card template generation, inject the symbol (e.g., 🔍, 🏗️, 📊) as an absolute-positioned element.\n3. Position: Centered watermark or floating near the category tag (Top-Center).\n4. Style: Subtle opacity (40-60%) to maintain the editorial minimalist look.",
+        "testStrategy": "1. Verify icons appear on all project cards.\n2. Check alignment and responsiveness.\n3. Ensure icons don't block the 'Catch the Light' animation.",
+        "priority": "medium",
+        "dependencies": [
+          "5"
+        ],
+        "status": "pending",
+        "subtasks": [],
+        "updatedAt": "2025-12-19T13:46:28.000Z"
+      },
+      {
+        "id": "13",
+        "title": "Add 'About Me' trust button",
+        "description": "Add a button or link pointing to an 'About Me' section at the top of the individual project detail view to build user trust.",
+        "details": "1. Edit `cards_indiv.html` header structure.\n2. Insert an `<a>` tag near the 'BACK TO GALLERY' link.\n3. Design: Transparent pill button with a thin border (`border-stone-200`).\n4. Link to the footer's 'The Curator' section (`#curator` or bottom of page) to establish authority via the existing bio.",
+        "testStrategy": "1. Verify link appears in detail view.\n2. Confirm smooth scroll to the curator footer section.\n3. Check hover state visibility.",
+        "priority": "high",
+        "dependencies": [
+          "8"
+        ],
+        "status": "pending",
+        "subtasks": [],
+        "updatedAt": "2025-12-19T13:46:28.000Z"
+      },
+      {
+        "id": "14",
+        "title": "Integrate process videos to cards",
+        "description": "Add a video component to cards to show the tool or process in detail. Note: Related to existing Task #11.",
+        "details": "1. Update the rendering logic in `cards_indiv.html` (specifically the `project.steps` loop).\n2. Add a conditional block for `step.content_type === 'video'`.\n3. Render an HTML5 `<video>` tag with attributes: `muted autoplay loop playsinline controls class=\"w-full rounded-2xl shadow-paper border border-stone-100 overlay-hidden\"`.\n4. Use `step.video_url` from the JSON schema.",
+        "testStrategy": "1. Add a dummy video step to a project in `projects_indiv.js`.\n2. Verify the video renders and autoplays (muted).\n3. Check mobile compatibility (playsinline).",
+        "priority": "low",
+        "dependencies": [
+          "11"
+        ],
+        "status": "pending",
+        "subtasks": [],
+        "updatedAt": "2025-12-19T13:46:28.000Z"
+      },
+      {
+        "id": "15",
+        "title": "Update Fact Checking card to 'AMOC Detective'",
+        "description": "Pivot the 'fact-checking' project card from a price scraper to a high-end research case study about AMOC collapse.",
+        "details": "1. Open `projects_indiv.js` and locate the object with `id: \"fact-checking\"`.\n2. Rename ID/Title to 'The Gulf Stream Detective'.\n3. Rewrite summary using the 'Mythbusters' narrative arc (Confusion -> Investigation -> Nuanced Verdict).\n4. Update `insights` to reflect the 55% vs 27% scientific split found in the research.\n5. Map the 'Personal Note' to the final step of the project.\n6. Add the `symbol: \"🔍\"` property.",
+        "testStrategy": "1. Open index.html and verify the card title has changed.\n2. Open the detail view and read the new narrative for flow.\n3. Verify scientific percentages (55/27) are accurate to the user research.",
+        "priority": "high",
+        "dependencies": [
+          "3"
+        ],
+        "status": "pending",
+        "subtasks": [],
+        "updatedAt": "2025-12-19T13:48:00.000Z"
       }
     ],
     "metadata": {
       "version": "1.0.0",
-      "lastModified": "2025-12-16T22:56:50.444Z",
-      "taskCount": 10,
+      "lastModified": "2025-12-19T13:48:00.000Z",
+      "taskCount": 15,
       "completedCount": 10,
       "tags": [
         "master"
