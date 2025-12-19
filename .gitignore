@@ -3,8 +3,9 @@ package-lock.json
 server.log
 test-results/
 *.env 
-*md 
 *.code-workspace
+*.md
+
 
 # Logs
 logs
