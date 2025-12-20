@@ -4,7 +4,9 @@ description: Steps to close a session
 
 To close a session execute the following steps:
 
-i)   include Website_spec_indiv.md back in .gitignore
-ii)  commit all changes
-iii) merge with the main branch
-iv)  push changes to remote repository
+i)   update Website_spec_indiv.md with the vadlidated lastest changes if applicable
+ii)  update taskmaster-ai the lastest validated changes if applicable
+iii) include Website_spec_indiv.md back in .gitignore
+iv)  commit all changes
+v)   merge with the main branch
+vi)  push changes to remote repository
