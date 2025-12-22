@@ -2,7 +2,7 @@
   "master": {
     "tasks": [
       {
-        "id": 16,
+        "id": "16",
         "title": "Initialize Project Structure",
         "description": "Set up base files and directories according to the PRD specification.",
         "details": "Create index.html, index_de.html, cards_indiv.html, cards_indiv_de.html, projects_indiv.js, projects_indiv_de.js, and CNAME file. Link Tailwind CSS via CDN in all HTML files.",
@@ -13,326 +13,490 @@
         "subtasks": []
       },
       {
-        "id": 17,
+        "id": "17",
         "title": "Implement Global Design System",
         "description": "Apply color palette, typography, and base styles across all pages.",
         "details": "Define CSS variables for Alabaster (#FAFAF9), Carbon (#171717), Stone (#78716C) and insight colors. Implement Playfair Display, Plus Jakarta Sans, and JetBrains Mono via CDN. Set base font styles and background colors.",
         "testStrategy": "Visual inspection of color application and font rendering. Use browser dev tools to verify CSS variable usage.",
         "priority": "high",
         "dependencies": [
-          16
+          "16"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 18,
+        "id": "18",
         "title": "Create SVG Noise Texture",
         "description": "Implement subtle background texture as specified in the design system.",
         "details": "Create SVG noise filter with 3% opacity. Apply as background-image to body element using base64 encoding or external SVG file.",
         "testStrategy": "Visual inspection at different zoom levels to confirm subtle texture presence without visual clutter.",
         "priority": "medium",
         "dependencies": [
-          17
+          "17"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 19,
+        "id": "19",
         "title": "Build Language Switcher Component",
         "description": "Implement pill-shaped language toggle with DE/ENG options.",
         "details": "Create reusable component with active/inactive states. Position top-right on all pages. Implement click handlers to switch between language versions while preserving project ID on detail pages.",
         "testStrategy": "Test navigation between index.html and index_de.html. Verify URL parameters persist on detail pages during language switches.",
         "priority": "high",
         "dependencies": [
-          16
+          "16"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 20,
+        "id": "20",
         "title": "Implement Hero Section",
         "description": "Create minimalist header with manifesto text and typography.",
         "details": "Use Playfair Display for 'AUGMENT' headline. Center-align manifesto text in constrained column. Ensure no navigation or submit buttons are present.",
         "testStrategy": "Verify typography hierarchy and responsive behavior across breakpoints.",
         "priority": "high",
         "dependencies": [
-          17
+          "17"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 21,
+        "id": "21",
         "title": "Develop Masonry Grid Layout",
         "description": "Create responsive card grid with large gaps (gap-12).",
         "details": "Implement CSS grid or column layout with Tailwind's gap-12 utility. Ensure cards maintain aspect ratio (4:5) and responsive behavior.",
         "testStrategy": "Test grid responsiveness across devices. Verify gap sizing matches design specs.",
         "priority": "high",
         "dependencies": [
-          17
+          "17"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 22,
+        "id": "22",
         "title": "Design Generative Card Covers",
         "description": "Create category-based CSS-generated artwork for project cards.",
         "details": "Implement three cover styles: organic radial gradients (finance), structured grid patterns (engineering), and giant typography symbols (code). Use CSS pseudo-elements and background properties.",
         "testStrategy": "Verify visual differentiation between categories. Test rendering performance.",
         "priority": "medium",
         "dependencies": [
-          21
+          "21"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 23,
+        "id": "23",
         "title": "Build Insight Card Component",
         "description": "Create reusable project card with floating corners and content areas.",
         "details": "Implement white card with 4:5 aspect ratio. Position publication date badge (top-center) and author attribution (bottom-center). Add triangular corner markers with p-4 padding.",
         "testStrategy": "Verify all content elements render correctly. Check aspect ratio maintenance.",
         "priority": "high",
         "dependencies": [
-          21,
-          22
+          "21",
+          "22"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 24,
+        "id": "24",
         "title": "Implement Card Hover Effects",
         "description": "Add elevation and corner animation on card hover.",
         "details": "Create CSS transitions for card lift (transform: translateY) and corner marker scale-up. Add tooltip showing persona message on hover.",
         "testStrategy": "Hover test on multiple cards. Verify smooth animations and tooltip positioning.",
         "priority": "medium",
         "dependencies": [
-          23
+          "23"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 25,
+        "id": "25",
         "title": "Create Firefly Animation System",
         "description": "Implement random corner pulsing effect across card grid.",
         "details": "Use JavaScript to select random card corners every 3-5 seconds. Animate glow intensity (opacity) via CSS keyframes. Ensure animation restarts seamlessly.",
         "testStrategy": "Observe animation pattern over 2+ minutes. Verify no performance issues.",
         "priority": "low",
         "dependencies": [
-          23
+          "23"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 26,
+        "id": "26",
         "title": "Develop Footer Component",
         "description": "Implement asymmetric footer with 'READY TO BUILD?' typography.",
         "details": "Create split layout with large serif text and monospace link list (LinkedIn, Email). Use JetBrains Mono for technical links.",
         "testStrategy": "Verify visual balance and link functionality. Check responsive behavior.",
         "priority": "medium",
         "dependencies": [
-          17
+          "17"
         ],
         "status": "done",
         "subtasks": []
       },
       {
-        "id": 27,
+        "id": "27",
         "title": "Implement Project Data Loading",
         "description": "Load and parse projects_indiv.js data for rendering.",
         "details": "Create data loader function that accesses window.PROJECTS. Handle potential loading errors and empty states.",
         "testStrategy": "Test with valid/invalid data structures. Verify error handling.",
         "priority": "high",
         "dependencies": [
-          16
+          "16"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.484Z"
       },
       {
-        "id": 28,
+        "id": "28",
         "title": "Build Detail Page Routing",
         "description": "Handle project-specific detail view navigation.",
         "details": "Parse window.location.search for ?id parameter. Match against projects array and render corresponding content. Implement 404 handling for invalid IDs.",
         "testStrategy": "Test URL parameter handling with valid/invalid IDs. Verify content rendering accuracy.",
         "priority": "high",
         "dependencies": [
-          27
+          "27"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.540Z"
       },
       {
-        "id": 29,
+        "id": "29",
         "title": "Create Detail Page Header",
         "description": "Implement title, like button, and 4-insight grid.",
         "details": "Position like button top-right. Display all four insight messages in a grid layout using their respective colors.",
         "testStrategy": "Verify insight message rendering and color coding. Test like button positioning.",
         "priority": "high",
         "dependencies": [
-          28
+          "28"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.545Z"
       },
       {
-        "id": 30,
+        "id": "30",
         "title": "Develop Methodology Flow Section",
         "description": "Implement narrative sections (Prompt, Pivot, Implementation, Refinement).",
         "details": "Create sequential content blocks with appropriate headings. Implement thick dashed separator for Tech Stack section.",
         "testStrategy": "Verify content hierarchy and separator styling. Check responsive layout.",
         "priority": "medium",
         "dependencies": [
-          28
+          "28"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.550Z"
       },
       {
-        "id": 31,
+        "id": "31",
         "title": "Integrate CounterAPI for Likes",
         "description": "Connect respect button to global like counter.",
         "details": "Implement fetch calls to counterapi.dev (namespace: mkn501-symbiosis). Handle optimistic UI updates and error fallbacks.",
         "testStrategy": "Test like increments persist across sessions. Verify offline handling.",
         "priority": "high",
         "dependencies": [
-          23,
-          29
+          "23",
+          "29"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.553Z"
       },
       {
-        "id": 32,
+        "id": "32",
         "title": "Implement Open Graph Metadata",
         "description": "Add social sharing tags for proper link previews.",
         "details": "Include og:title, og:description, and og:image meta tags. Dynamically update for project detail pages.",
         "testStrategy": "Use sharing debuggers (Facebook, LinkedIn) to verify correct metadata.",
         "priority": "medium",
         "dependencies": [
-          16
+          "16"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.556Z"
       },
       {
-        "id": 33,
+        "id": "33",
         "title": "Create Data Schema Validator",
         "description": "Ensure projects_indiv.js matches required JSON structure.",
         "details": "Build runtime validation using JSON schema or manual checks. Console warn on mismatches during development.",
         "testStrategy": "Intentionally break schema to verify error detection.",
         "priority": "medium",
         "dependencies": [
-          27
+          "27"
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 34,
+        "id": "34",
         "title": "Optimize Responsive Behavior",
         "description": "Ensure proper rendering across mobile and desktop viewports.",
         "details": "Implement media queries for grid layout, typography scaling, and component spacing. Test touch targets for mobile.",
         "testStrategy": "Device testing using Chrome DevTools. Verify no horizontal scrolling.",
         "priority": "medium",
         "dependencies": [
-          21,
-          23,
-          26
+          "21",
+          "23",
+          "26"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.568Z"
       },
       {
-        "id": 35,
+        "id": "35",
         "title": "Configure GitHub Pages Deployment",
         "description": "Set up automatic deployment via GitHub Actions.",
         "details": "Create deployment workflow that pushes build artifacts to gh-pages branch. Enable HTTPS enforcement.",
         "testStrategy": "Verify live deployment matches local build. Check HTTPS enforcement.",
         "priority": "high",
         "dependencies": [
-          16
+          "16"
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 36,
+        "id": "36",
         "title": "Implement DNS Configuration",
         "description": "Set up Namecheap DNS records for custom domain.",
         "details": "Create A records pointing to GitHub IPs and CNAME for www subdomain. Remove default redirects/parking.",
         "testStrategy": "Use dig command to verify DNS propagation. Check domain accessibility.",
         "priority": "high",
         "dependencies": [
-          35
+          "35"
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.569Z"
       },
       {
-        "id": 37,
+        "id": "37",
         "title": "Create Cache Busting Mechanism",
         "description": "Prevent stale content issues during updates.",
         "details": "Implement version query strings for CSS/JS files (style.css?v=2). Add cache-control headers via .htaccess.",
         "testStrategy": "Verify updated files load immediately after deployment.",
         "priority": "medium",
         "dependencies": [
-          35
+          "35"
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 38,
+        "id": "38",
         "title": "Implement Cross-Browser Testing",
         "description": "Ensure compatibility with major browsers.",
         "details": "Test on Chrome, Firefox, Safari and Edge. Address vendor-specific CSS issues.",
         "testStrategy": "Visual regression testing across browsers. Check functionality consistency.",
         "priority": "medium",
         "dependencies": [
-          34
+          "34"
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 39,
+        "id": "39",
         "title": "Develop Local Testing Server Setup",
         "description": "Create script for local development with live reload.",
         "details": "Implement Node.js server with express or python -m http.server. Add start script to package.json.",
         "testStrategy": "Verify API calls work locally without CORS errors.",
         "priority": "medium",
         "dependencies": [
-          16
+          "16"
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 40,
+        "id": "40",
         "title": "Document Git Workflow",
         "description": "Create contributor guidelines for repository management.",
         "details": "Document rebase workflow: git pull --rebase origin main before pushing. Add .gitignore for OS files.",
         "testStrategy": "Verify new contributors can successfully clone and push changes.",
         "priority": "low",
         "dependencies": [
-          16
+          "16"
         ],
         "status": "pending",
         "subtasks": []
       }
     ],
     "metadata": {
-      "created": "2025-12-20T00:13:39.909Z",
-      "updated": "2025-12-20T00:13:39.909Z",
-      "description": "Tasks for master context"
+      "version": "1.0.0",
+      "lastModified": "2025-12-21T23:41:37.569Z",
+      "taskCount": 25,
+      "completedCount": 19,
+      "tags": [
+        "master"
+      ]
+    }
+  },
+  "maintenance": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Implement Global Design System",
+        "description": "Set up color palette, typography, and base styles according to specifications",
+        "details": "1. Define CSS variables for colors: Alabaster Paper (#FAFAF9), Carbon Ink (#171717), Stone (#78716C), and insight colors (Cool Blue #0EA5E9, Fiery Red #DC2626, Sunshine Yellow #D97706, Earth Green #15803D)\n2. Add SVG noise texture with 3% opacity as background\n3. Import Playfair Display, Plus Jakarta Sans, and JetBrains Mono fonts via CDN\n4. Create base Tailwind configuration extending colors and fonts\n5. Implement shadow-paper class for card diffusion effect",
+        "testStrategy": "Visual inspection against design specs. Verify color values using browser dev tools. Check font loading in Network tab.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.853Z"
+      },
+      {
+        "id": "2",
+        "title": "Implement JSON Data Structure",
+        "description": "Create projects_indiv.js and projects_indiv_de.js with schema-compliant data",
+        "details": "1. Define PROJECTS array in both files with Case Study #001 sample data\n2. Implement all required fields from schema: id, category, style_type, insights, etc.\n3. Add German translations in projects_indiv_de.js\n4. Ensure proper escaping for HTML/markdown content\n5. Validate JSON structure using JSON Schema validator",
+        "testStrategy": "Load files in browser console, verify PROJECTS array exists. Check field completeness. Validate schema compliance.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.855Z"
+      },
+      {
+        "id": "3",
+        "title": "Build Home Page Layout",
+        "description": "Implement hero section, project grid, and footer for index.html",
+        "details": "1. Create clean header with language switcher (initially hidden functionality)\n2. Implement massive 'AUGMENT' typography with manifesto text\n3. Set up masonry grid with gap-12 using CSS Grid\n4. Build footer with 'READY TO BUILD?' typography and monospace links\n5. Ensure responsive breakpoints for mobile",
+        "testStrategy": "Cross-browser layout testing. Verify grid behavior at different screen sizes. Check text rendering accuracy.",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.856Z"
+      },
+      {
+        "id": "4",
+        "title": "Develop Project Card Component",
+        "description": "Create interactive project cards with floating markers and hover effects",
+        "details": "1. Implement white card with 4:5 aspect ratio\n2. Add triangular corner markers with border-[40px]\n3. Create hover animation (lift effect + marker scaling)\n4. Add 'Respect' button with heart icon\n5. Implement 'firefly' animation with random corner pulses\n6. Include publication date badge and author attribution",
+        "testStrategy": "Test hover states and animations. Verify corner marker positioning. Check card accessibility.",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.857Z"
+      },
+      {
+        "id": "5",
+        "title": "Implement Project Detail Page",
+        "description": "Create cards_indiv.html template for displaying full project details",
+        "details": "1. Parse URL ?id parameter to find matching project\n2. Render title, 4-insight grid, and metrics section\n3. Implement methodology flow (Prompt, Pivot, Implementation, Refinement)\n4. Add tech stack list with dashed separator\n5. Include 'Like' button in header\n6. Ensure proper content sanitization for HTML fields",
+        "testStrategy": "Test with various ID parameters. Verify content rendering accuracy. Check XSS protection.",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.859Z"
+      },
+      {
+        "id": "6",
+        "title": "Implement Language Switching",
+        "description": "Add DE/ENG language toggle with persistence and routing logic",
+        "details": "1. Create pill-shaped buttons in header\n2. Store selected language in localStorage\n3. Implement routing logic: \n   - Home: index.html <-> index_de.html\n   - Detail: cards_indiv.html?id=X <-> cards_indiv_de.html?id=X\n4. Add hover states per design specs\n5. Load appropriate projects_indiv[_de].js file based on language",
+        "testStrategy": "Test language persistence across pages. Verify URL parameter handling. Check content translation accuracy.",
+        "priority": "medium",
+        "dependencies": [
+          "3",
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.860Z"
+      },
+      {
+        "id": "7",
+        "title": "Integrate Like Counter API",
+        "description": "Connect 'Respect' buttons to CounterAPI for persistent likes",
+        "details": "1. Implement API calls to counterapi.dev/v1/mkn501-symbiosis/project-{id}\n2. Create fetch logic for initial count load\n3. Add optimistic UI update on click before API confirmation\n4. Handle API errors with fallback to localStorage\n5. Debounce rapid clicks to prevent abuse",
+        "testStrategy": "Test API responses in different network conditions. Verify count persistence. Check error handling.",
+        "priority": "medium",
+        "dependencies": [
+          "4",
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.862Z"
+      },
+      {
+        "id": "8",
+        "title": "Implement Routing Logic",
+        "description": "Handle navigation between home and detail pages with ID preservation",
+        "details": "1. Add click handlers to project cards that navigate to cards_indiv.html?id={id}\n2. Ensure language parameter persists during navigation\n3. Implement 404 fallback for invalid IDs\n4. Add back-to-home navigation in detail pages\n5. Optimize history state management",
+        "testStrategy": "Test all navigation paths. Verify ID parameter handling. Check browser history behavior.",
+        "priority": "medium",
+        "dependencies": [
+          "3",
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.863Z"
+      },
+      {
+        "id": "9",
+        "title": "Develop Generative Card Covers",
+        "description": "Create dynamic card backgrounds based on project style_type",
+        "details": "1. Implement three cover types via CSS:\n   - Finance: Organic radial gradients\n   - Engineering: Grid patterns with CSS repeating-linear-gradient\n   - Code: Giant typography symbols using ::before pseudo-elements\n2. Map style_type from JSON to visual treatment\n3. Ensure covers adapt to card aspect ratio\n4. Add subtle animations where appropriate",
+        "testStrategy": "Verify visual treatment matches category. Test responsive behavior. Check performance impact.",
+        "priority": "low",
+        "dependencies": [
+          "4"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.864Z"
+      },
+      {
+        "id": "10",
+        "title": "Configure Deployment & DNS",
+        "description": "Set up GitHub Pages deployment and custom domain routing",
+        "details": "1. Configure GitHub Pages to deploy from main branch\n2. Enable HTTPS enforcement\n3. Update CNAME file with mknguyen.space\n4. Verify DNS A records (185.199.108.153 etc.) and CNAME\n5. Implement cache-busting for projects_indiv.js updates",
+        "testStrategy": "Verify live deployment accessibility. Check HTTPS enforcement. Test DNS propagation using dig.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-21T23:41:37.865Z"
+      }
+    ],
+    "metadata": {
+      "version": "1.0.0",
+      "lastModified": "2025-12-21T23:41:37.865Z",
+      "taskCount": 10,
+      "completedCount": 10,
+      "tags": [
+        "maintenance"
+      ]
     }
   }
 }
