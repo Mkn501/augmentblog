@@ -358,7 +358,12 @@ You are the gatekeeper for BOTH human and AI code.
 - **Local Review**: When reviewing local human code, run the full test suite defined in `technologyContext.md` (e.g., `npm test` or `./run-test.sh`) *before* approving.
 - **PR Review**:
     - **Visual Check**: When reviewing a Jules PR, look at the file diff. Ensure it focuses only on the scope defined in the task.
-    - **CHECKOUT & VERIFY**: You **MUST** fetch the branch locally. Run the project's start/test command (e.g., `npm start`, `cargo run`). Verify the feature works interactively.
+    - **CHECKOUT & VERIFY**: 
+      - **Safety First**: Do NOT use `git checkout` in your main folder. It effectively "deletes" your current files to show the other branch, which can be scary and disruptive.
+      - **Use Worktrees**: Create a separate folder for the review: 
+        `git worktree add ../review-pr-[ID] [branch-name]`
+      - **Verify**: Open that *new* folder in a new VS Code window. Run tests there.
+      - **Cleanup**: When done, close the window and run `git worktree remove ../review-pr-[ID]`.
 
 ## 4. Merge & Sync (The Shutdown Protocol)
 - **Method**: Use **Squash Merge** by default to keep history clean, unless instructed otherwise.
@@ -418,7 +423,7 @@ The following table maps the standard daily routines to their specific Kilo Agen
 **Process**:
 1. **Activate**: SOP Auditor.
 2. **Inspect**: It uses `github_mcp` to list PRs.
-3. **Verify**: It checks the CI/CD status (Must be Green).
+3. **Verify**: It uses `git worktree` to check out the code in a separate folder (keeping your main folder safe). It runs the checks there.
 4. **Merge**: It merges the PR and instructs you to `git pull`.
 5. **Sync**: It updates `progress.md` with the merged changes.
 
