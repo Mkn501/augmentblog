@@ -5,6 +5,7 @@
 - **Status**: SOP 20251221 "Federated Model" migration complete.
 
 ## Recent Changes
+- [2025-12-23] Archived legacy `Website_spec_indiv.md` to `docs/archive/`.
 - [2025-12-22] Completed SOP 20251221 compliance migration.
 - [2025-12-22] Re-populated Memory Bank using `Website_spec_indiv.md` (System Constitution).
 - [2025-12-22] Audited Taskmaster and reconciled codebase state (~85% complete).

@@ -5,7 +5,7 @@ test-results/
 *.env 
 *.code-workspace
 
-Website_spec_indiv.md
+
 Website_spec_platform.md
 TASKMASTER_LIFECYCLE.md
 Gitflow.md

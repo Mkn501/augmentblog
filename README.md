@@ -2,6 +2,8 @@
 
 This project follows the **Federated Model** workflow.
 
+**Last Updated**: 2025-12-23
+
 ## 🧠 Memory Bank
 **For AI Agents & Developers**: Please refer to the [Memory Bank](memory-bank/projectbrief.md) for the active documentation, context, and system patterns.
 
