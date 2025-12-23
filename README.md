@@ -22,18 +22,17 @@ npm install
 ```
 
 ### 2. Run Locally
-Since this is a static site, you can use any static file server.
+The project now supports a dedicated local development server with live reload.
 
-**Option A (Python 3):**
+**Standard Command (Node.js):**
 ```bash
-python3 -m http.server 8000
-# Open http://localhost:8000
+npm start
+# Runs 'live-server .' and opens browser automatically
 ```
 
-**Option B (Node/NPX):**
+**Alternative (Python 3):**
 ```bash
-npx http-server .
-# Open the provided localhost URL
+python3 -m http.server 8000
 ```
 
 ### 3. Testing
