@@ -11,7 +11,8 @@
 - [x] **Localization**: DE/ENG toggle with context-aware routing.
 - [x] **Deployment**: DNS (mknguyen.space) and GitHub Pages configured.
 - [x] **SOP Compliance**: Memory Bank initialized, README updated, Jules prep done.
-- [ ] **Infrastructure**: Cross-browser testing and local dev server setup.
+- [x] **Infrastructure**: Cross-browser testing and local dev server setup.
+- [x] **SOP Refinement**: Defined strict Auditor rules (v20251223).
 
 ### SOP Compliance (Current)
 - [x] Create Implementation Plan.
