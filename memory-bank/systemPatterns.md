@@ -6,6 +6,11 @@
 - **Data Source**: JSON objects in `projects_indiv.js` (EN) and `projects_indiv_de.js` (DE).
 - **Rendering**: Client-side rendering via `index.html` and `cards_indiv.html`.
 
+## Development Environment
+- **Server**: `live-server` (Lightweight Node.js server).
+- **Features**: Live-reloading, CORS support for local `fetch()` calls.
+- **Command**: `npm start` (maps to `live-server .`).
+
 ## Global Design Language
 
 ### Color Palette (The Studio)

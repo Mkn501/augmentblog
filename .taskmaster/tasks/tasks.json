@@ -314,8 +314,10 @@
         "id": "39",
         "title": "Develop Local Testing Server Setup",
         "description": "Create script for local development with live reload.",
-        "details": "Implement Node.js server with express or python -m http.server. Add start script to package.json.",
-        "testStrategy": "Verify API calls work locally without CORS errors.",
+        "details": "Implement Node.js server with live-server. Steps: 1. npm init -y (if needed). 2. npm install --save-dev live-server. 3. Add 'start': 'live-server .' to package.json. 4. Add node_modules to .gitignore.",
+        "testStrategy": "Verify API calls work locally without CORS errors. verification_command: 'npm start' (manual check).",
+        "agent": "jules",
+        "verification_command": "grep \"live-server\" package.json && grep \"\\\"start\\\": \\\"live-server .\\\"\" package.json",
         "priority": "medium",
         "dependencies": [
           "16"
