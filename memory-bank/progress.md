@@ -13,6 +13,7 @@
 - [x] **SOP Compliance**: Memory Bank initialized, README updated, Jules prep done.
 - [x] **Infrastructure**: Cross-browser testing and local dev server setup.
 - [x] **SOP Refinement**: Defined strict Auditor rules (v20251223).
+- [x] **Content**: Finalized 'The KNIME Architect' case study (Narrative & Visuals).
 
 ### SOP Compliance (Current)
 - [x] Create Implementation Plan.

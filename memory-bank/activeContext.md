@@ -2,9 +2,10 @@
 
 ## Current Focus
 - **Goal**: Maintain SOP compliance and execute pending infrastructure tasks.
-- **Status**: SOP 20251221 "Federated Model" migration complete.
+- **Status**: SOP 20251221 "Federated Model" migration complete. "The KNIME Architect" project entry finalized.
 
 ## Recent Changes
+- [2026-01-02] Refined "The KNIME Architect" project narrative and visuals for layman accessibility (Case Study #001).
 - [2025-12-23] Refined SOP Auditor rules (v20251223) with strict validation protocols.
 - [2025-12-23] Implemented and Verified `Task #39` (Local Testing Server).
 - [2025-12-23] Archived legacy `Website_spec_indiv.md` to `docs/archive/`.

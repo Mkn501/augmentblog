@@ -1,5 +1,75 @@
 window.PROJECTS = [
     {
+        "id": "knime-ai-architect",
+        "category": "Workflow-Automatisierung",
+        "type": "Case Study",
+        "style_type": "organic",
+        "title": "Der KNIME-Architekt",
+        "subtitle": "Multimodale KI als Co-Pilot",
+        "tagline": "Wie ein Anfänger eine professionelle XML-Pipeline baute, ganz ohne Code.",
+        "author": "Sie",
+        "publication_date": "02.01.2026",
+        "likes": 0,
+        "tech_stack": ["KNIME", "Gemini Pro 2.5", "Regex"],
+        "metrics": {
+            "role": "Architekt",
+            "timeline": "1 Tag",
+            "impact": "Fortgeschrittene ETL-Logik",
+            "tech": "KNIME, Gemini Pro 2.5"
+        },
+        "summary": "Der Aufbau komplexer ETL-Workflows erfordert normalerweise tiefes technisches Fachwissen. Dieses Projekt zeigt, wie multimodale KI (visuelle Eingaben) es einem Anfänger ermöglichte, eine robuste XML-Pipeline zu entwerfen, komplexe Datenkorruptionsprobleme zu lösen und in einem Zug eine Dokumentation auf Unternehmensniveau zu erstellen.",
+        "insights": {
+            "analyst": "Kompromiss: Visuelle Tools sind hervorragend für die Zugänglichkeit, können aber bei komplexen logischen Operationen im Vergleich zu Code 'wartungsintensiv' werden.",
+            "businessman": "ROI-Freischaltung: KI liefert sofortiges technisches Fachwissen und ermöglicht es uns, Aufgaben in Stunden zu automatisieren, die zuvor 'zu teuer' oder zu technisch waren.",
+            "visionary": "Wir bewegen uns vom 'Lernen der Syntax' zum 'Entwerfen der Logik'.",
+            "humanist": "Dies senkte die Einstiegshürde und gab mir das Gefühl, mächtig statt überfordert zu sein."
+        },
+        "steps": [
+            {
+                "title": "Die Aufforderung (Menschliche Absicht)",
+                "color": "stone-400",
+                "content_type": "text",
+                "text": "\"Helfen Sie mir, KNIME so einzurichten, dass XML-Dateien für bestimmte Tags ausgelesen werden. Es gibt tägliche Dateien mit dem Dateinamenmuster: `Report_2025_...xml`. Das Skript soll Tags (IDs, Betrag, Datum) extrahieren und in eine Master-Excel schreiben. Bevor Sie eine Implementierung vorschlagen, diskutieren Sie: Ist es besser, Dateien nach Datumsmuster automatisch zu scannen? Außerdem muss die Datenbank überprüft werden, um bereits verarbeitete Dateien zu überspringen.\""
+            },
+            {
+                "title": "Der Assistent (KI-Vision)",
+                "color": "insight-blue",
+                "content_type": "list",
+                "items": [
+                    "Ich nutzte KI (Gemini Pro 2.5) als 'Senior KNIME Entwickler'.",
+                    "Sie fungierte als strategischer Partner und riet mir, ein 'intelligentes' System zu bauen, das sich merkt, welche Dateien bereits verarbeitet wurden, anstatt ein 'blindes' System, das versehentlich Daten duplizieren könnte."
+                ]
+            },
+            {
+                "title": "Der Durchbruch",
+                "color": "insight-yellow",
+                "content_type": "html",
+                "html": "Als Standardknoten bei komplexen Daten versagten, leitete mich die KI an, visuell einen benutzerdefinierten 'Reparaturwerkstatt'-Workflow zu erstellen. Sie übersetzte komplexe Data-Engineering-Konzepte (Regex/Splitting) in eine Sequenz von <strong>einfachen Knoten</strong>."
+            },
+            {
+                "title": "Implementierung",
+                "color": "stone-900",
+                "content_type": "image",
+                "image_url": "pics/knime_xml_flow.png",
+                "grayscale": false,
+                "image_caption": "Die komplette Pipeline: XML-Stapelverarbeitung"
+            },
+            {
+                "title": "Das Ergebnis",
+                "color": "insight-green",
+                "content_type": "failure_success",
+                "failure": "Manuelles Reporting war anfällig und langsam.",
+                "success": "Erstellte eine robuste, automatisierte Pipeline, die die Verarbeitungszeit von Stunden auf Sekunden reduziert, vollständig dokumentiert ist und von jedem im Team bedient werden kann."
+            }
+        ],
+        "lessons": [
+            "Fazit: Die Wartung komplexer KNIME-Workflows ist mit hoher Reibung verbunden. Vermeiden Sie die Implementierung komplexer Logik in visuellen Tools.",
+            "KI-Vision ermöglicht es Ihnen, grafische Tools (wie KNIME) zu debuggen, die Sie noch nicht vollständig verstehen.",
+            "Dokumentation ist kein nachträglicher Gedanke mehr; sie ist ein kostenloses Nebenprodukt des Chats."
+        ],
+        "generalizes": "Diese 'Visuelle Debugging'-Schleife funktioniert für jedes komplexe GUI-Tool (Blender, Salesforce, Tableau). Wenn Sie das Problem per Screenshot erfassen können, kann Ihnen multimodale KI die Lösung beibringen."
+    },
+    {
         "id": "rental-yield-trap",
         "category": "Immobilienanalyse",
         "type": "Case Study",

@@ -1,5 +1,75 @@
 window.PROJECTS = [
     {
+        "id": "knime-ai-architect",
+        "category": "Workflow Automation",
+        "type": "Case Study",
+        "style_type": "organic",
+        "title": "The KNIME Architect",
+        "subtitle": "Multimodal AI as a Co-Pilot",
+        "tagline": "How a novice built an institutional-grade XML pipeline without writing code.",
+        "author": "You",
+        "publication_date": "02.01.2026",
+        "likes": 0,
+        "tech_stack": ["KNIME", "Gemini Pro 2.5", "Regex"],
+        "metrics": {
+            "role": "Architect",
+            "timeline": "1 Day",
+            "impact": "Advanced ETL Logic",
+            "tech": "KNIME, Gemini Pro 2.5"
+        },
+        "summary": "Building complex ETL workflows usually requires deep technical expertise. This project demonstrates how Multimodal AI (Visual Inputs) enabled a novice to architect a robust XML pipeline, solve complex data corruption issues, and generate enterprise-grade documentation in one go.",
+        "insights": {
+            "analyst": "Trade-off: Visual tools are excellent for accessibility, but can become 'maintenance heavy' for complex logical operations compared to code.",
+            "businessman": "ROI Unlock: AI provides instant technical expertise, allowing us to automate tasks in hours that were previously 'too expensive' or technical to tackle.",
+            "visionary": "We are moving from 'learning syntax' to 'designing logic'.",
+            "humanist": "This lowered the barrier to entry, making me feel powerful rather than overwhelmed."
+        },
+        "steps": [
+            {
+                "title": "The Prompt (Human Intent)",
+                "color": "stone-400",
+                "content_type": "text",
+                "text": "\"Help to setup KNIME to read out XML files for specific tags. There are daily files with filename pattern: `Report_2025_...xml`. The script shall extract tags (IDs, Amount, Date) and write to a master Excel. Before suggesting implementation, discuss: Is it better to auto-scan files by date pattern? Also, it must check the database to skip already processed files.\""
+            },
+            {
+                "title": "The Assistant (AI Vision)",
+                "color": "insight-blue",
+                "content_type": "list",
+                "items": [
+                    "I used AI (Gemini Pro 2.5) as a 'Senior KNIME Developer.'",
+                    "It acted as a strategic partner, advising me to build a 'smart' system that remembers which files it has already processed, rather than a 'blind' system that might accidentally duplicate data."
+                ]
+            },
+            {
+                "title": "The Breakthrough",
+                "color": "insight-yellow",
+                "content_type": "html",
+                "html": "When standard nodes failed on complex data, the AI guided me to build a custom 'Repair Shop' workflow visually. It translated complex data engineering concepts (Regex/Splitting) into a sequence of <strong>simple nodes</strong>."
+            },
+            {
+                "title": "Implementation",
+                "color": "stone-900",
+                "content_type": "image",
+                "image_url": "pics/knime_xml_flow.png",
+                "grayscale": false,
+                "image_caption": "The Complete Pipeline: XML Batch Processing"
+            },
+            {
+                "title": "The Result",
+                "color": "insight-green",
+                "content_type": "failure_success",
+                "failure": "Manual reporting was fragile and slow.",
+                "success": "Created a robust, automated pipeline that cuts processing time from hours to seconds, is fully documented, and can be operated by anyone on the team."
+            }
+        ],
+        "lessons": [
+            "Verdict: Maintenance of complex KNIME workflows is high-friction. Avoid implementing complex logic in visual tools.",
+            "AI Vision allows you to debug graphical tools (like KNIME) that you don't fully understand yet.",
+            "Documentation is no longer an afterthought; it's a zero-cost byproduct of the chat."
+        ],
+        "generalizes": "This 'Visual Debugging' loop works for any complex GUI tool (Blender, Salesforce, Tableau). If you can screenshot the problem, Multimodal AI can teach you the solution."
+    },
+    {
         "id": "rental-yield-trap",
         "category": "Real Estate Analysis",
         "type": "Case Study",

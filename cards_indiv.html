@@ -113,7 +113,10 @@
                 }
 
                 // Populate Header
-                document.getElementById('case-id').textContent = `CASE STUDY #001`;
+                // Calculate index for Case Study Number
+                const projectIndex = projects.findIndex(p => p.id === project.id);
+                const caseNumber = String(projectIndex + 1).padStart(3, '0');
+                document.getElementById('case-id').textContent = `CASE STUDY #${caseNumber}`;
                 document.getElementById('case-category').textContent = project.category.toUpperCase();
                 document.getElementById('case-date').textContent = project.publication_date;
                 document.getElementById('main-title').innerHTML = `${project.title}<br/><span class="text-stone-400 italic font-normal">${project.subtitle}</span>`;
@@ -169,7 +172,7 @@
                         } else if (step.content_type === 'image') {
                             const imageContent = `
                                 <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-paper border border-stone-100 relative group cursor-pointer">
-                                    <img src="${step.image_url || '#'}" alt="Visual" class="w-full h-auto object-cover grayscale group-hover:grayscale-20 transition-all duration-700">
+                                    <img src="${step.image_url || '#'}" alt="Visual" class="w-full h-auto object-cover ${step.grayscale === false ? '' : 'grayscale group-hover:grayscale-20'} transition-all duration-700">
                                     <div class="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors"></div>
                                     <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-lg p-3 flex items-center gap-3 border border-white/50 shadow-sm">
                                         <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
