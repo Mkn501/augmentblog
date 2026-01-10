@@ -56,4 +56,4 @@ npx playwright test
 *   `docs/`: Archive and legacy specifications.
 
 ---
-*Last Updated: 2026-01-02*
+*Last Updated: 2026-01-10*

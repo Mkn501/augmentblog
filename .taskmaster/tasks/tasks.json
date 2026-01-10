@@ -234,9 +234,22 @@
         "description": "Ensure projects_indiv.js matches required JSON structure.",
         "details": "Build runtime validation using JSON schema or manual checks. Console warn on mismatches during development.",
         "testStrategy": "Intentionally break schema to verify error detection.",
-        "priority": "medium",
+        "priority": "high",
         "dependencies": [
           "27"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "41",
+        "title": "Implement Dynamic Content API",
+        "description": "Create API endpoints for fetching project data dynamically.",
+        "details": "Implement Node.js / Serverless functions to serve project JSON. Transition from static JS loading to async fetch.",
+        "testStrategy": "Verify API responses match schema. Test async loading in frontend.",
+        "priority": "medium",
+        "dependencies": [
+          "28"
         ],
         "status": "pending",
         "subtasks": []

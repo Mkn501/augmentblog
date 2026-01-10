@@ -50,7 +50,7 @@ window.PROJECTS = [
                 "title": "Implementation",
                 "color": "stone-900",
                 "content_type": "image",
-                "image_url": "pics/knime_xml_flow.png",
+                "image_url": "pics/knime_xml_stylized.png",
                 "grayscale": false,
                 "image_caption": "The Complete Pipeline: XML Batch Processing"
             },
@@ -59,7 +59,7 @@ window.PROJECTS = [
                 "color": "insight-green",
                 "content_type": "failure_success",
                 "failure": "Manual reporting was fragile and slow.",
-                "success": "Created a robust, automated pipeline that cuts processing time from hours to seconds, is fully documented, and can be operated by anyone on the team."
+                "success": "Created a robust, automated pipeline that cuts processing time from hours to seconds, is fully documented, and can be operated by anyone."
             }
         ],
         "lessons": [

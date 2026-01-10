@@ -14,6 +14,7 @@
 - [x] **Infrastructure**: Cross-browser testing and local dev server setup.
 - [x] **SOP Refinement**: Defined strict Auditor rules (v20251223).
 - [x] **Content**: Finalized 'The KNIME Architect' case study (Narrative & Visuals).
+- [x] **Management**: Aligned Taskmaster priorities and resolved task ID conflicts.
 
 ### SOP Compliance (Current)
 - [x] Create Implementation Plan.

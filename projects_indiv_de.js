@@ -50,7 +50,7 @@ window.PROJECTS = [
                 "title": "Implementierung",
                 "color": "stone-900",
                 "content_type": "image",
-                "image_url": "pics/knime_xml_flow.png",
+                "image_url": "pics/knime_xml_stylized.png",
                 "grayscale": false,
                 "image_caption": "Die komplette Pipeline: XML-Stapelverarbeitung"
             },
@@ -59,7 +59,7 @@ window.PROJECTS = [
                 "color": "insight-green",
                 "content_type": "failure_success",
                 "failure": "Manuelles Reporting war anfällig und langsam.",
-                "success": "Erstellte eine robuste, automatisierte Pipeline, die die Verarbeitungszeit von Stunden auf Sekunden reduziert, vollständig dokumentiert ist und von jedem im Team bedient werden kann."
+                "success": "Erstellte eine robuste, automatisierte Pipeline, die die Verarbeitungszeit von Stunden auf Sekunden reduziert, vollständig dokumentiert ist und von jedem bedient werden kann."
             }
         ],
         "lessons": [
