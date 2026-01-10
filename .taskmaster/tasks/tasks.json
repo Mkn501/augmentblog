@@ -351,12 +351,77 @@
         ],
         "status": "pending",
         "subtasks": []
+      },
+      {
+        "id": "42",
+        "title": "Clarify Target Audience",
+        "description": "Add one short line under the hero to explicitly say who the site is for.",
+        "details": "Implement a concise sub-headline or tagline in index.html and index_de.html that clarifies the target audience and value proposition early.",
+        "testStrategy": "Visual verification of the new line's positioning and legibility. Check responsive behavior.",
+        "priority": "high",
+        "dependencies": [
+          "20"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "43",
+        "title": "Set 'Open Case' Expectations",
+        "description": "Indicate content type (analysis, build, narrative) for project cards.",
+        "details": "Update project card UI or tooltips to clearly label whether 'Open Case' leads to a technical analysis, a build walkthrough, or a narrative case study.",
+        "testStrategy": "Verify that each card clearly indicates its content type before the user clicks.",
+        "priority": "medium",
+        "dependencies": [
+          "23"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "45",
+        "title": "Standardize Case Study Structure",
+        "description": "Establish a consistent flow (Problem → Method → Insight → Outcome).",
+        "details": "Update the JSON structure and rendering logic to enforce a consistent narrative flow across all existing and future case studies.",
+        "testStrategy": "Verify consistent structure across all project detail pages.",
+        "priority": "medium",
+        "dependencies": [
+          "30"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "46",
+        "title": "Add 'About / Why this Lab' Section",
+        "description": "Strengthen credibility with a brief introductory section or proof points.",
+        "details": "Implement a new 'About' section or modal that explains the philosophy behind the lab and provides light proof points of expertise.",
+        "testStrategy": "Visual inspection of the new section. Ensure it integrates well with the existing minimalist design.",
+        "priority": "medium",
+        "dependencies": [
+          "16"
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": "47",
+        "title": "Visual Content Differentiation",
+        "description": "Improve differentiation between essays, tools, and case studies at a glance.",
+        "details": "Implement visual cues (icons, badges, or color coding) on the main grid to help users distinguish between different content types immediately.",
+        "testStrategy": "User test (or self-audit) to ensure content types are distinguishable without reading the full description.",
+        "priority": "medium",
+        "dependencies": [
+          "23"
+        ],
+        "status": "pending",
+        "subtasks": []
       }
     ],
     "metadata": {
-      "version": "1.0.0",
-      "lastModified": "2025-12-23T11:31:18.320Z",
-      "taskCount": 25,
+      "version": "1.1.0",
+      "lastModified": "2026-01-10T10:17:00Z",
+      "taskCount": 30,
       "completedCount": 20,
       "tags": [
         "master"

@@ -21,3 +21,10 @@
 - Implement `Task #37`: Cache Busting Mechanism (Priority: Medium).
 - Implement `Task #38`: Cross-Browser Testing (Priority: Medium).
 - Implement `Task #40`: Document Git Workflow (Priority: Low).
+
+## Roadmap Expansion (New Goals)
+- Implement `Task #42`: Clarify Target Audience (Priority: High).
+- Implement `Task #43`: Set 'Open Case' Expectations (Priority: Medium).
+- Implement `Task #45`: Standardize Case Study Structure (Priority: Medium).
+- Implement `Task #46`: Add 'About / Why this Lab' Section (Priority: Medium).
+- Implement `Task #47`: Visual Content Differentiation (Priority: Medium).
